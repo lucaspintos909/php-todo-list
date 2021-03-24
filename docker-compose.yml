@@ -1,0 +1,22 @@
+version: '3'
+services:
+  php:
+    image: php-mysqli:8.0.3-apache
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_DATABASE: php-mysql
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+  
