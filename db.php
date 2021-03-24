@@ -1,14 +1,11 @@
 <?php
 
-$connection = mysqli_connect(
-    'localhost',
-    'root',
-    '',
-    'php_crud_mysql'
-);
+//phpinfo();
+$connection = mysqli_connect('db', 'root', '', 'php-mysql');
 
 if(isset($connection)){
-    print("DB is connected.");
+    //print("DB connected!!   ");
 }
 
+mysqli_close($connection)
 ?>
