@@ -38,7 +38,31 @@
             </div>
             
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created at</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                      $query_get_tasks="SELECT * FROM task";
+                      $res_tasks=mysqli_query($conn, $query_get_tasks);
+
+                      while($row = mysqli_fetch_array($res_tasks)){ ?>
+                        <tr>
+                            <td><?= $row['title']; ?></td>
+                            <td><?= $row['description']; ?></td>
+                            <td><?= $row['created_at']; ?></td>
+                        </tr>
+                      <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>
