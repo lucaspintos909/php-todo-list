@@ -14,7 +14,9 @@
             die("Query failed");
         }
 
-        header("Location: index.php");
+        $_SESSION['message'] = "Task saved succesfully!";
+        $_SESSION['message_type'] = "primary";
+        header("Location: index.php");  
 
     }
 ?>
