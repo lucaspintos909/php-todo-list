@@ -58,6 +58,15 @@
                             <td><?= $row['title']; ?></td>
                             <td><?= $row['description']; ?></td>
                             <td><?= $row['created_at']; ?></td>
+                            <td class="buttons">
+                                <a class="btn btn-info rounded-lg" href="edit_task.php?id=<?php echo $row['id']?>" aria-label="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                
+                                <a class="btn btn-danger rounded-lg" href="delete_task.php?id=<?php echo $row['id']?>" aria-label="Delete">
+                                    <i class="fas fa-backspace"></i>
+                                </a>
+                            </td>
                         </tr>
                       <?php } ?>
                 </tbody>
@@ -66,7 +75,12 @@
     </div>
 
 </div>
-
+<style>
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+</style>
 <?php
 include('./includes/footer.php')
 ?>
