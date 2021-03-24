@@ -50,8 +50,8 @@
                 </thead>
                 <tbody>
                     <?php
-                      $query_get_tasks="SELECT * FROM task";
-                      $res_tasks=mysqli_query($conn, $query_get_tasks);
+                      $get_tasks_query="SELECT * FROM task";
+                      $res_tasks=mysqli_query($conn, $get_tasks_query);
 
                       while($row = mysqli_fetch_array($res_tasks)){ ?>
                         <tr>
