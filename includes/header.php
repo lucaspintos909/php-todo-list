@@ -10,3 +10,12 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a href="index.php" class="navbar-brand">Crud PHP Mysql</a>
+        <span class="navbar-text">
+            Made by Lucas Pintos
+        </span>
+    </div>
+</nav>
