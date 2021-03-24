@@ -12,9 +12,9 @@
 
         if(!$res){
             die("Query failed");
-        }else{
-            echo "Saved!";
         }
+
+        header("Location: index.php");
 
     }
 ?>
