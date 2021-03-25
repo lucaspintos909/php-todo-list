@@ -6,15 +6,22 @@
   include('./includes/header.php')
 ?>
 <div class="container p-4">
-    <div>
+    <div class="alert-fixed">
         <?php if(isset($_SESSION['message'])){ ?>
             <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
+
+                <?php if($_SESSION['message_type'] == 'danger'){ ?>
+                    <i class="fas fa-fire-alt mr-1"></i>
+                <?php }elseif($_SESSION['message_type'] == 'primary') { ?>
+                    <i class="fas fa-clipboard-check mr-1"></i>
+                <?php } ?>
+
                 <?= $_SESSION['message'] ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <?php  session_unset();} ?>
+        <?php session_unset();} ?>
     </div>
     <div class="row">
 
@@ -51,9 +58,9 @@
                 <tbody>
                     <?php
                       $get_tasks_query="SELECT * FROM task";
-                      $res_tasks=mysqli_query($conn, $get_tasks_query);
-
-                      while($row = mysqli_fetch_array($res_tasks)){ ?>
+                      $res = mysqli_query($conn, $get_tasks_query);
+                      
+                      while($row = mysqli_fetch_array($res)){ ?>
                         <tr>
                             <td><?= $row['title']; ?></td>
                             <td><?= $row['description']; ?></td>
@@ -79,6 +86,13 @@
 .buttons{
     display: flex;
     justify-content: space-between;
+}
+.alert-fixed{
+    width: fit-content;
+    margin: auto;
+}
+.text-center{
+    text-align: center;
 }
 </style>
 <?php
