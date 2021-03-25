@@ -3,8 +3,8 @@
     include("./db.php");
 
     if(isset($_POST['save_task'])){
-        $title=$_POST['title'];
-        $description=$_POST['description'];
+        $title=htmlentities($_POST['title'],ENT_COMPAT);
+        $description=htmlentities($_POST['description'],ENT_COMPAT);
 
         $query="INSERT INTO task(title, description) VALUES ('$title', '$description')";
 

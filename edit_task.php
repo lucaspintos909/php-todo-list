@@ -4,12 +4,12 @@
 
     if(isset($_POST['edit_task'])){
 
-        $id = htmlentities($_POST['id']);
-        $title = htmlentities($_POST['title']);
-        $description = htmlentities($_POST['description']);
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
 
 
-        $query="UPDATE task SET title='$title', description='$description' WHERE id=$id";
+        $query="UPDATE task SET title='$title',description='$description' WHERE id=$id;
 
         $res = mysqli_query($conn, $query);
 
