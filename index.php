@@ -50,9 +50,11 @@
         <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
 
             <?php if($_SESSION['message_type'] == 'danger'){ ?>
-            <i class="fas fa-fire-alt mr-1"></i>
+                <i class="fas fa-fire-alt mr-1"></i>
             <?php }elseif($_SESSION['message_type'] == 'primary') { ?>
-            <i class="fas fa-clipboard-check mr-1"></i>
+                <i class="fas fa-clipboard-check mr-1"></i>
+            <?php }elseif($_SESSION['message_type'] == 'success') { ?>
+                <i class="fas fa-pencil-alt mr-1"></i>
             <?php } ?>
 
             <?= $_SESSION['message'] ?>
