@@ -15,6 +15,7 @@
         $_SESSION['message'] = "Tarea eliminada correctamente.";
         $_SESSION['message_type'] = "danger";
 
-        header("Location: index.php"); 
+        header("Location: index.php");
+        die();
     } 
 ?>
