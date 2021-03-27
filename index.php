@@ -10,7 +10,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit task</h5>
+                    <h5 class="modal-title">Editar tarea</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -23,22 +23,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="title">Task title</label>
+                            <label for="title">Titulo</label>
                             <input id="modal_title_input" type="text" name="title" class="form-control"
                                 placeholder="Type here">
                         </div>
 
                         <div class="form-group ">
-                            <label for="description">Task description</label>
+                            <label for="description">Descripcion</label>
                             <textarea id="modal_description_input" name="description" class="form-control" rows="2"
-                                placeholder="Type here"></textarea>
+                                placeholder="Escriba aqui"></textarea>
                         </div>
 
 
                     </div>
                     <div class="modal-footer">
-                        <input class="btn btn-primary w-10" type="submit" name="edit_task" value="Save edit">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input class="btn btn-primary w-10" type="submit" name="edit_task" value="Guardar">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -60,7 +60,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <?php session_unset();} ?>
+        <?php session_unset();} ?> <!-- Para borrar todos los datos de la sesion-->
     </div>
     <div class="row">
 
@@ -70,15 +70,15 @@
                 <form action="save_task.php" method="POST">
 
                     <div class="form-group">
-                        <label for="title">Task title</label>
-                        <input type="text" name="title" class="form-control" placeholder="Type here" autofocus>
+                        <label for="title">Titulo</label>
+                        <input type="text" name="title" class="form-control" placeholder="Escriba aqui" autofocus>
                     </div>
 
                     <div class="form-group ">
-                        <label for="description">Task description</label>
-                        <textarea name="description" class="form-control" rows="2" placeholder="Type here"></textarea>
+                        <label for="description">Description</label>
+                        <textarea name="description" class="form-control" rows="2" placeholder="Escriba aqui"></textarea>
                     </div>
-                    <input class="btn btn-success btn-block" type="submit" name="save_task" value="Save task">
+                    <input class="btn btn-success btn-block" type="submit" name="save_task" value="Crear tarea">
 
                 </form>
             </div>
@@ -88,10 +88,10 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Created at</th>
-                        <th>Actions</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Fecha de creacion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,12 +107,12 @@
                         <td class="">
                             <div class="buttons">
                                 <a onclick="showModal(<?php echo $row['id']?>, '<?= $row['title']?>', '<?= $row['description']?>')"
-                                    class="btn btn-info" aria-label="Edit">
+                                    class="btn btn-info" aria-label="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
                                 <a class="btn btn-danger" href="delete_task.php?id=<?php echo $row['id']?>"
-                                    aria-label="Delete">
+                                    aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
                             </div>
