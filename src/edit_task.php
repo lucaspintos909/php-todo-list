@@ -9,16 +9,17 @@
         $description = $_POST['description'];
 
 
-        $query="UPDATE task SET title='$title',description='$description' WHERE id=$id;
+        $query="UPDATE task SET title='$title',description='$description' WHERE id=$id";
 
         $res = mysqli_query($conn, $query);
 
         if(!$res){
             die("Query failed");
         }
-        $_SESSION['message'] = "Task edited successfully!";
+        $_SESSION['message'] = "Tarea editada satisfactoriamente!";
         $_SESSION['message_type'] = "success";
-        header("Location: index.php"); 
+        header("Location: ../index.php");
+        die();
     }
 
 
