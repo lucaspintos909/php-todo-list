@@ -18,7 +18,7 @@
         }
         $_SESSION['message'] = "Tarea editada satisfactoriamente!";
         $_SESSION['message_type'] = "success";
-        header("Location: index.php");
+        header("Location: ../index.php");
         die();
     }
 

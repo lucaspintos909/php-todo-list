@@ -1,9 +1,9 @@
 <?php
-  include('db.php')
+include('./src/db.php');
 ?>
 
 <?php
-  include('./includes/header.php')
+include('./src/includes/header.php');
 ?>
 <div class="container p-4">
     <div id="editTaskModal" class="modal fade">
@@ -15,7 +15,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="edit_task.php" method="POST">
+                <form action="./src/edit_task.php" method="POST">
                     <div class="modal-body">
 
                         <div class="d-none">
@@ -69,7 +69,7 @@
         <div class="col-md-4">
 
             <div class="card card-body">
-                <form action="save_task.php" method="POST">
+                <form action="./src/save_task.php" method="POST">
 
                     <div class="form-group">
                         <label for="title">Titulo</label>
@@ -108,12 +108,13 @@
                         <td><?= $row['created_at']; ?></td>
                         <td class="">
                             <div class="buttons">
+                                <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
                                 <a onclick="showModal(<?php echo $row['id']?>, '<?= $row['title']?>', '<?= $row['description']?>')"
                                     class="btn btn-info" aria-label="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $row['id']?>"
+                                <a class="btn btn-danger" href="src/delete_task.php?id=<?php echo $row['id']?>"
                                     aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
@@ -129,6 +130,7 @@
 </div>
 
 <script>
+    /*Funcion para mostrar el modal de editar tarea, poniendole los datos a los inputs*/
 function showModal(task_id, task_title, task_description) {
     $('#editTaskModal').modal('show');
     $('#modal_id_input').val(task_id);
@@ -157,5 +159,5 @@ function showModal(task_id, task_title, task_description) {
 
 
 <?php
-include('./includes/footer.php')
+include('./src/includes/footer.php')
 ?>

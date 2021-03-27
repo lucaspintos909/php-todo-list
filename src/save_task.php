@@ -16,7 +16,7 @@
 
         $_SESSION['message'] = "Tarea creada con exito!";
         $_SESSION['message_type'] = "primary";
-        header("Location: index.php");  
+        header("Location: ../index.php");
         die();
     }
 ?>
