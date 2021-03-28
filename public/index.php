@@ -1,9 +1,9 @@
 <?php
-include('./src/db.php');
+include('./db.php');
 ?>
 
 <?php
-include('./src/includes/header.php');
+include('./includes/header.php');
 ?>
 <div class="container p-4">
     <div id="editTaskModal" class="modal fade">
@@ -15,7 +15,7 @@ include('./src/includes/header.php');
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="./src/edit_task.php" method="POST">
+                <form action="edit_task.php" method="POST">
                     <div class="modal-body">
 
                         <div class="d-none">
@@ -69,7 +69,7 @@ include('./src/includes/header.php');
         <div class="col-md-4">
 
             <div class="card card-body">
-                <form action="./src/save_task.php" method="POST">
+                <form action="./save_task.php" method="POST">
 
                     <div class="form-group">
                         <label for="title">Titulo</label>
@@ -114,7 +114,7 @@ include('./src/includes/header.php');
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-danger" href="src/delete_task.php?id=<?php echo $row['id']?>"
+                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $row['id']?>"
                                     aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
@@ -129,7 +129,14 @@ include('./src/includes/header.php');
 
 </div>
 
+<style>
+
+</style>
+
+<script>
+
+</script>
 
 <?php
-include('./src/includes/footer.php')
+include('./includes/footer.php')
 ?>

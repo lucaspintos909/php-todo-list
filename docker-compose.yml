@@ -1,22 +1,59 @@
-version: '3'
+version: '3.5'
 services:
-  php:
-    image: php-mysqli:8.0.3-apache
+
+  docker-nginx:
+    container_name: docker-nginx
+    build:
+      context: ./docker/nginx
+      args:
+        UID: $U_ID
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
-      - ./:/var/www/html
-    links:
-      - db
-  db:
-    image: mysql:5.7
-    container_name: db
+      - ./public:/appdata/www/public
+    networks:
+      - docker-network-lemp
+    depends_on:
+      - docker-php-fmp
+
+  docker-php-fmp:
+    container_name: docker-php-fmp
+    build:
+      context: ./docker/php
+      args:
+        UID: $U_ID
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9005
+    volumes:
+      - ./:/appdata/www
+      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    networks:
+      - docker-network-lemp
+    depends_on:
+      - docker-mysql-db
+
+  docker-mysql-db:
+    container_name: docker-mysql-db
+    image: mysql:8.0
     environment:
       MYSQL_DATABASE: php-mysql
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_USER: lucas
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - 3360:3306
     volumes:
-      - ./mysql/db:/var/lib/mysql
-  
+      - mysql-data:/var/lib/mysql
+    networks:
+      - docker-network-lemp
+
+volumes:
+  mysql-data:
+
+networks:
+  docker-network-lemp:
+    external: true
+
