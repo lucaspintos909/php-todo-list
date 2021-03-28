@@ -69,7 +69,7 @@ include('./includes/header.php');
         <div class="col-md-4">
 
             <div class="card card-body">
-                <form action="save_task.php" method="POST">
+                <form action="./save_task.php" method="POST">
 
                     <div class="form-group">
                         <label for="title">Titulo</label>
@@ -129,6 +129,13 @@ include('./includes/header.php');
 
 </div>
 
+<style>
+
+</style>
+
+<script>
+
+</script>
 
 <?php
 include('./includes/footer.php')
