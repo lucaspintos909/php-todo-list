@@ -20,7 +20,11 @@ restart: ## Restart the containers
 	$(MAKE) stop && $(MAKE) run
 
 build: ## Rebuilds all the containers
-	U_ID=${UID} docker-compose build
+	mkdir ./docker/nginx/dhparam
+	cd docker/nginx/dhparam
+	openssl dhparam -out ./docker/nginx/dhparam/dhparam-2048.pem 2048
+    U_ID=${UID} docker-compose build
+
 
 # Backend commands
 composer-install: ## Installs composer dependencies
