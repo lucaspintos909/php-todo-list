@@ -12,10 +12,22 @@ services:
       - 443:443
     volumes:
       - ./public:/appdata/www/public
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/dhparam:/etc/nginx/dhparam
+      - ./docker/certbot/conf:/etc/nginx/ssl
+      - ./docker/certbot/data:/usr/share/nginx/html/letsencrypt
     networks:
       - docker-network-lemp
     depends_on:
       - docker-php-fmp
+
+  docker-certbot:
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email lucaspintos909@gmail.com --agree-tos --no-eff-email -d tareas.lucaspintos.tech
+    volumes:
+      - ./docker/certbot/conf:/etc/letsencrypt
+      - ./docker/certbot/logs:/var/log/letsencrypt
+      - ./docker/certbot/data:/usr/share/nginx/html/letsencrypt
 
   docker-php-fmp:
     container_name: docker-php-fmp
