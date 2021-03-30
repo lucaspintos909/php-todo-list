@@ -4,7 +4,7 @@ session_start();
 
 //phpinfo();
 
-$conn = mysqli_connect('docker-mysql-db', 'lucas', '123456', 'php-mysql');
+$conn = mysqli_connect('db', 'lucas', '123456', 'php-mysql');
 
 if(!isset($conn)){
     print("Connection to DB failed!!");
