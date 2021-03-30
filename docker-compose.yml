@@ -1,54 +1,18 @@
 version: '3.5'
 services:
-
-  docker-nginx:
-    container_name: docker-nginx
+  php:
+    container_name: php-apache
     build:
-      context: ./docker/nginx
-      args:
-        UID: $U_ID
-    ports:
-      - 80:80
-      - 443:443
+      context: ./
+    ports: 
+      - 8080:80
     volumes:
-      - ./public:/appdata/www/public
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
-      - ./docker/nginx/dhparam:/etc/nginx/dhparam
-      - ./docker/certbot/conf:/etc/nginx/ssl
-      - ./docker/certbot/data:/usr/share/nginx/html/letsencrypt
-    networks:
-      - docker-network-lemp
+      - ./src:/var/www/html
     depends_on:
-      - docker-php-fmp
+      - db
 
-  docker-certbot:
-    image: certbot/certbot:latest
-    command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email lucaspintos909@gmail.com --agree-tos --no-eff-email -d tareas.lucaspintos.tech
-    volumes:
-      - ./docker/certbot/conf:/etc/letsencrypt
-      - ./docker/certbot/logs:/var/log/letsencrypt
-      - ./docker/certbot/data:/usr/share/nginx/html/letsencrypt
-
-  docker-php-fmp:
-    container_name: docker-php-fmp
-    build:
-      context: ./docker/php
-      args:
-        UID: $U_ID
-    environment:
-      PHP_IDE_CONFIG: serverName=Docker
-      PHP_XDEBUG_ENABLED: 1
-      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9005
-    volumes:
-      - ./:/appdata/www
-      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini
-    networks:
-      - docker-network-lemp
-    depends_on:
-      - docker-mysql-db
-
-  docker-mysql-db:
-    container_name: docker-mysql-db
+  db:
+    container_name: db
     image: mysql:8.0
     environment:
       MYSQL_DATABASE: php-mysql
@@ -58,14 +22,5 @@ services:
     ports:
       - 3360:3306
     volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - docker-network-lemp
-
-volumes:
-  mysql-data:
-
-networks:
-  docker-network-lemp:
-    external: true
+      - ./mysql:/var/lib/mysql
 
