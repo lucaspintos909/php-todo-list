@@ -11,4 +11,3 @@ if(!isset($conn)){
 }
 
 //mysqli_close($connection)
-?>
