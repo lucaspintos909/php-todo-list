@@ -1,18 +1,5 @@
 version: '3.5'
 services:
-  https-portal:
-    container_name: ssl
-    image: steveltn/https-portal:1
-    depends_on:
-        - php
-    ports:
-        - 80:80
-        - 443:443
-    restart: always
-    volumes:
-        - ./ssl_certs:/var/lib/https-portal
-    environment:
-        DOMAINS: 'test.lucaspintos.tech -> http://34.230.185.184:8080 #production'
   php:
     container_name: php
     build:
@@ -36,4 +23,5 @@ services:
       - 3360:3306
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar las tablas y base de datos
 
