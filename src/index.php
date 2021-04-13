@@ -77,7 +77,7 @@ include('./includes/header.php');
                     </div>
 
                     <div class="form-group ">
-                        <label for="description">Description</label>
+                        <label for="description">Descripcion</label>
                         <textarea name="description" class="form-control" rows="2" placeholder="Escriba aqui"></textarea>
                     </div>
                     <input class="btn btn-success btn-block" type="submit" name="save_task" value="Crear tarea">
