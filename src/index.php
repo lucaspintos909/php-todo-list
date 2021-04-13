@@ -101,20 +101,20 @@ include('./includes/header.php');
                       $get_tasks_query="SELECT * FROM task";
                       $res = mysqli_query($conn, $get_tasks_query);
                       
-                      while($row = mysqli_fetch_array($res)){ ?>
+                      while($task = mysqli_fetch_array($res)){ ?>
                     <tr>
-                        <td><?= $row['title']; ?></td>
-                        <td><?= $row['description']; ?></td>
-                        <td><?= $row['created_at']; ?></td>
+                        <td><?= $task['title']; ?></td>
+                        <td><?= $task['description']; ?></td>
+                        <td><?= $task['created_at']; ?></td>
                         <td class="">
                             <div class="buttons">
                                 <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
-                                <a onclick="showModal(<?php echo $row['id']?>, '<?= $row['title']?>', '<?= $row['description']?>')"
+                                <a onclick="showModal(<?php echo $task['id']?>, '<?= $task['title']?>', '<?= $task['description']?>')"
                                     class="btn btn-info" aria-label="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $row['id']?>"
+                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $task['id']?>"
                                     aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
