@@ -1,8 +1,8 @@
--- Creating the database
-CREATE DATABASE IF NOT EXISTS task_system;
+-- Creando la base de datos
+CREATE DATABASE IF NOT EXISTS task_db;
 
--- Creating tables
-CREATE TABLE IF NOT EXISTS task_system.task (
+-- Creando las tablas
+CREATE TABLE IF NOT EXISTS task_db.tasks (
   id INT(11) AUTO_INCREMENT,
   user_email INT(11) NOT NULL,
   title VARCHAR(50) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS task_system.task (
   FOREIGN KEY (user_email) REFERENCES users(email)
 );
 
-CREATE TABLE IF NOT EXISTS task_system.users (
+CREATE TABLE IF NOT EXISTS task_db.users (
 	id INT(11) AUTO_INCREMENT,
   user_name VARCHAR(120) NOT NULL,
   email VARCHAR(120) NOT NULL UNIQUE,
