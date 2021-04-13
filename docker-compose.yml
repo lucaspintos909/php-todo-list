@@ -15,7 +15,7 @@ services:
     container_name: db
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: php-mysql
+      MYSQL_DATABASE: task_db
       MYSQL_USER: lucas
       MYSQL_PASSWORD: 123456
       MYSQL_ROOT_PASSWORD: root
