@@ -55,10 +55,7 @@ class App{
 
                 }else{
                     # Error, no existe el metodo
-
-                    $errorController = new Errors();
-                    #$errorController->loadModel('errors');
-                    $errorController->render();
+                    $controller = new Errors();
                 }
 
             }else{
@@ -68,9 +65,8 @@ class App{
 
         }else{
             # No existe el archivo, manda error 404
-            $errorController = new Errors();
-            #$errorController->loadModel('errors');
-            $errorController->render();
+            $controller = new Errors();
+            $controller->render();
         }
     }
 }
