@@ -25,7 +25,7 @@ a {
     <div class="container">
         <h1>No se ha encontrado la pagina.</h1>
         <h1> <span class="ascii">(╯°□°）╯︵ ┻━┻</span></h1>
-        <a href="<?$URL?>/home">Ir a home</a>
+        <a href="<?$URL?>/home">Ir a pagina principal</a>
     </div>
 
 </body>
