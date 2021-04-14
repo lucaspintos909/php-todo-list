@@ -53,4 +53,22 @@ class Controller{
         return $_POST[$param];
     }
 
+    function redirect($route, $mensajes){
+        $data = [];
+        $params = '';
+
+        foreach ($mensajes as $key => $mensaje) {
+            array_push($data, $key . '=' . $mensaje); # Me genera un array con los mensajes
+        }
+
+        $params = join('&', $data); # Me une todo separado con un & para que funcionen los parametros 
+        # Ej: ?nombre=Lucas&apellido=Pintos
+        if($params != ''){
+            $params = '?' . $params; # Concatenando ? al principio para que funcionen los parametros
+        }
+
+        # URL completa a la que se va a redirigir al usuario
+        header('Location: ' . constant('URL') . $route . $params); 
+    }
+
 }
