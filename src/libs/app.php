@@ -1,7 +1,11 @@
 <?php
+
+require_once 'controllers/errors.php';
+
 class App{
 
     function __construct(){
+
         # Si existe una url la guarda, sino le asigna null
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         # Quitando las / que puedan haber al final de la url
@@ -51,6 +55,10 @@ class App{
 
                 }else{
                     # Error, no existe el metodo
+
+                    $errorController = new Errors();
+                    #$errorController->loadModel('errors');
+                    $errorController->render();
                 }
 
             }else{
@@ -60,6 +68,9 @@ class App{
 
         }else{
             # No existe el archivo, manda error 404
+            $errorController = new Errors();
+            #$errorController->loadModel('errors');
+            $errorController->render();
         }
     }
 }
