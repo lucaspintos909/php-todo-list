@@ -53,24 +53,86 @@ class UserModel extends Model implements IModel{
                 $user->setRole($user_query['role']);
 
                 array_push($users, $user);
-
             }
-
             return $users;
 
         } catch (PDOException $ex) {
-            error_log("USERMODEL::getALL->PDOException " . $ex);
+            error_log("USERMODEL::getAll->PDOException " . $ex);
             return false;
         }
     }
     
-    public function get($id){}
+    public function get($id){
+
+        try {
+            $query = $this->prepare('SELECT * FROM task_db.users WHERE id = :id');
+            $query->excecute(['id' => $this->id]);
+
+            # FETCH_ASSOC es para que devuelva un array asociativo "clave->valor"
+            $user = $query->fetch(PDO::FETCH_ASSOC);
+
+            # Agarro todo lo que viene de la consulta y le setteo cada variable al usuario
+            $this->setId($user['id']);
+            $this->setUsername($user['username']);
+            $this->setEmail($user['email']);
+            $this->setPassword($user['password']);
+            $this->setRole($user['role']);
+
+            return $this;
+            
+        } catch (PDOException $ex) {
+            error_log("USERMODEL::getUser->PDOException " . $ex);
+            return false;
+        }
+
+    }
     
-    public function delete($id){}
+    public function delete($id){
+
+        try {
+
+            $query = $this->prepare('DELETE FROM task_db.users WHERE id = :id');
+            $query->excecute(['id' => $id]);
+
+            return true;
+
+        } catch (PDOException $ex) {
+            error_log("USERMODEL::delete->PDOException " . $ex);
+            return false;
+        }
+
+    }
     
-    public function update(){}
+    public function update(){
+
+        try {
+            $query = $this->prepare('UPDATE task_db.users SET username = :username, email = :email, password = :password, role = :role WHERE id = :id');
+            $query->excecute([
+                'id'        =>  $this->id,
+                'username'  =>  $this->username,
+                'email'     =>  $this->email,
+                'password'  =>  $this->password,
+                'role'      =>  $this->role    
+            ]);
+
+            return true;
+            
+        } catch (PDOException $ex) {
+            error_log("USERMODEL::update->PDOException " . $ex);
+            return false;
+        }
+
+    }
     
-    public function from($array){}
+    public function from($array){
+
+        $this->id       = $array['id'];
+        $this->username = $array['username'];
+        $this->email    = $array['email'];
+        $this->password = $array['password'];
+        $this->role     = $array['role'];
+
+    }
 
     private function getHashedPassword($password){
         return password_hash($password, PASSWORD_DEFAULT, ['cost' => 10]);
