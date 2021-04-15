@@ -31,6 +31,20 @@
             "access": "private",
             "role": "admin"
         }
+    ],
+    "default-sites": [
+        {
+            "site": "",
+            "role": ""
+        },
+        {
+            "site": "dashboard",
+            "role": "user"
+        },
+        {
+            "site": "admin",
+            "role": "admin"
+        }        
     ]
 
 }
