@@ -1,5 +1,6 @@
 <?php
     # Clase modelo base
+    include_once 'libs/imodel.php'; # Para implementar la interfaz
     class Model{
 
 
