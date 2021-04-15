@@ -1,4 +1,5 @@
 /mysql
 /.idea
+/src2
 ### dotenv ###
 .env
