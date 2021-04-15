@@ -1,5 +1,6 @@
 <?php
 
+require_once 'classes/session.php';
 class SessionController extends Controller{
 
     private $user_session;
@@ -60,7 +61,7 @@ class SessionController extends Controller{
             if($this->isPublic()){
                 # No pasa nada, lo deja entrar
             }else{
-                header('Location:' . constant('URL') . 'login');
+                header('Location:' . constant('URL') . 'home');
             }
 
         }
@@ -123,10 +124,10 @@ class SessionController extends Controller{
         
         # Separo la url con /
         $url = explode('/', $actual_link);
-
-        # Devuelvo el 3er elemento porque el 0 es http, el segundo es el dominio y el tercero es recien el controlador
-        # http://localhost/controlador
-        return $url[2];
+        
+        # Devuelvo el 2do elemento porque el 0 es http, el segundo es el dominio y el tercero es recien el controlador
+        # localhost/controlador
+        return $url[1];
     }
 
     private function redirectDefaultSiteByRole($role){
@@ -134,7 +135,7 @@ class SessionController extends Controller{
 
         for ($i=0; $i < sizeof($this->sites); $i++){
             if($this->sites[$i]['role'] == $role){
-                $url = '/' . $this->sites[$i]['site'];
+                $url = "/" . $this->sites[$i]['site'];
                 break;
             }
         }
