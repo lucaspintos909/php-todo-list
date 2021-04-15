@@ -152,6 +152,20 @@ class UserModel extends Model implements IModel{
         }
     }
 
+    public function comparePasswords($password, $id){
+        try {
+            # Uso la funcion que ya cree para obtener el usuario con el id
+            $user = $this->getUser($id);
+
+            # Funcion de php para verificar si la contraseña en texto plano es igual a la encriptada que obtiene de la BD
+            return password_verify($password, $user->getPassword());
+
+        } catch (PDOException $ex) {
+            error_log("USERMODEL::comparePasswords->PDOException " . $ex);
+            return false;
+        }
+    }
+
     private function getHashedPassword($password){
         return password_hash($password, PASSWORD_DEFAULT, ['cost' => 10]);
     }
