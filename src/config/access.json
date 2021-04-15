@@ -1,0 +1,31 @@
+{
+
+    "sites":[
+        {
+            "site": "login",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "signup",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "home",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "user",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "admin",
+            "access": "private",
+            "role": "admin"
+        }
+    ]
+
+}
