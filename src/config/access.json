@@ -2,6 +2,11 @@
 
     "sites":[
         {
+            "site": "",
+            "access": "public",
+            "role": ""
+        },
+        {
             "site": "login",
             "access": "public",
             "role": ""
@@ -12,7 +17,7 @@
             "role": ""
         },
         {
-            "site": "home",
+            "site": "dashboard",
             "access": "private",
             "role": "user"
         },
