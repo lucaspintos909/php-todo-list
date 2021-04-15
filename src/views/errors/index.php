@@ -17,14 +17,18 @@
 	flex-direction: column;
 	
 }
+#error{
+    font-size: 5rem;
+}
 a {
     color: black;
 }
 </style>
 
     <div class="container">
+        <span id="error">404</span>
         <h1>No se ha encontrado la pagina.</h1>
-        <h1> <span class="ascii">(╯°□°）╯︵ ┻━┻</span></h1>
+        <h2> <span class="ascii">╰༼ •̀۝•́ ༽╯ &nbsp; &nbsp; ༼ノಠ益ಠ༽ノ彡┻━┻</span></h2>
         <a href="<?$URL?>/home">Ir a pagina principal</a>
     </div>
 
