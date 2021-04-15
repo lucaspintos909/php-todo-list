@@ -18,7 +18,7 @@ class UserModel extends Model implements IModel{
         $this->role = '';
     }
 
-    public function save(){
+    public function saveUser(){
         try {
             $query = $this->prepare('INSERT INTO task_db.users(user_name, email, password, role) VALUES(:username, :email, :password, :role)');
             $query->execute([
@@ -34,7 +34,7 @@ class UserModel extends Model implements IModel{
         }
     }
 
-    public function getAll(){
+    public function getAllUsers(){
 
         $users = [];
 
@@ -62,7 +62,7 @@ class UserModel extends Model implements IModel{
         }
     }
     
-    public function get($id){
+    public function getUser($id){
 
         try {
             $query = $this->prepare('SELECT * FROM task_db.users WHERE id = :id');
@@ -87,7 +87,7 @@ class UserModel extends Model implements IModel{
 
     }
     
-    public function delete($id){
+    public function deleteUser($id){
 
         try {
 
@@ -103,7 +103,7 @@ class UserModel extends Model implements IModel{
 
     }
     
-    public function update(){
+    public function updateUser(){
 
         try {
             $query = $this->prepare('UPDATE task_db.users SET username = :username, email = :email, password = :password, role = :role WHERE id = :id');
@@ -132,6 +132,24 @@ class UserModel extends Model implements IModel{
         $this->password = $array['password'];
         $this->role     = $array['role'];
 
+    }
+
+    public function existsUser($username){
+        try {
+            $query = $this->prepare('SELECT username FROM task_db.users WHERE username = :username');
+            $query->execute([ "username" => $username ]);
+
+            # Si la consulta devuelve un elemento quiere decir que ya existe ese usuario
+            if($query->rowCount() > 0){
+                return true;
+            }else {
+                return false;
+            }
+
+        } catch (PDOException $ex) {
+            error_log("USERMODEL::exists->PDOException " . $ex);
+            return false;
+        }
     }
 
     private function getHashedPassword($password){
