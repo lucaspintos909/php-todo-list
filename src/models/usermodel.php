@@ -66,7 +66,7 @@ class UserModel extends Model implements IModel{
 
         try {
             $query = $this->prepare('SELECT * FROM task_db.users WHERE id = :id');
-            $query->excecute(['id' => $this->id]);
+            $query->execute(['id' => $id]);
 
             # FETCH_ASSOC es para que devuelva un array asociativo "clave->valor"
             $user = $query->fetch(PDO::FETCH_ASSOC);
@@ -134,10 +134,10 @@ class UserModel extends Model implements IModel{
 
     }
 
-    public function existsUser($username){
+    public function existsUser($email){
         try {
-            $query = $this->prepare('SELECT username FROM task_db.users WHERE username = :username');
-            $query->execute([ "username" => $username ]);
+            $query = $this->prepare('SELECT email FROM task_db.users WHERE email = :email');
+            $query->execute([ "email" => $email ]);
 
             # Si la consulta devuelve un elemento quiere decir que ya existe ese usuario
             if($query->rowCount() > 0){
