@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.svg" />
     <title>Tasks CRUD</title>
     
     <!--  Mis estilos  -->
-    <!-- <link rel="stylesheet" href="./assets/styles.css"> -->
+    <link rel="stylesheet" href="assets/styles.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -23,17 +23,36 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
     <a href="#" class="navbar-brand">PHP MYSQL CRUD</a>
-    <div>
+    <button
+
+        class="navbar-toggler"
+
+        type="button"
+
+        data-toggle="collapse"
+
+        data-target="#navbarSupportedContent"
+
+        aria-controls="navbarSupportedContent"
+
+        aria-expanded="false"
+
+        aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#">Registro</a>
+                <a class="nav-link" href="<?php constant('URL')?>signup">Registro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="<?php constant('URL')?>login"">Login</a>
             </li>
         </ul>
         
@@ -41,9 +60,20 @@
   </div>
 </nav>
 
-
-
-
+<!-- <div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Collapsed content</h5>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+ -->
 <div class="container p-4">
     <div id="editTaskModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
@@ -137,17 +167,19 @@
                 </thead>
                 <tbody>
                     <?php
-                      $get_tasks_query="SELECT * FROM task";
-                      $res = mysqli_query($conn, $get_tasks_query);
+                      #$get_tasks_query="SELECT * FROM task";
+                      #$res = mysqli_query($conn, $get_tasks_query);
                       
-                      while($task = mysqli_fetch_array($res)){ ?>
+                      #while($task = mysqli_fetch_array($res)){ ?>
                     <tr>
-                        <td><?= $task['title']; ?></td>
+                        <!-- <td><?= $task['title']; ?></td>
                         <td><?= $task['description']; ?></td>
-                        <td><?= $task['created_at']; ?></td>
-                        <td class="">
+                        <td><?= $task['created_at']; ?></td> -->
+
+                        <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
+                        <!-- <td class="">
                             <div class="buttons">
-                                <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
+                                
                                 <a onclick="showModal(<?php echo $task['id']?>, '<?= $task['title']?>', '<?= $task['description']?>')"
                                     class="btn btn-info" aria-label="Editar">
                                     <i class="fas fa-edit"></i>
@@ -158,9 +190,9 @@
                                     <i class="fas fa-backspace"></i>
                                 </a>
                             </div>
-                        </td>
+                        </td> -->
                     </tr>
-                    <?php } ?>
+                    <?php #} ?>
                 </tbody>
             </table>
         </div>
@@ -175,6 +207,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <!-- <script src="./assets/index.js"></script> -->
+<script src="assets/index.js"></script>
 </body>
 </html>
