@@ -43,7 +43,7 @@
                     <p class="text-center">O</p>
 
                     <div class="form-group">
-                    <a href="<?$URL?>/signup" class="btn btn-success btn-block">Registrarse</a>
+                    <a href="<?php echo constant('URL');?>signup" class="btn btn-success btn-block">Registrarse</a>
                     </div>
                 </div>
             </div>
