@@ -44,7 +44,7 @@ class Signup extends SessionController{
             # Verifica si existe el usuario
             if($user->existsUser($user->getEmail())){
                 $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EXISTS]);
-            }elseif ($user->saveUser()) {
+            }elseif ($user->save()) {
                 $this->redirect('login',['success' => SuccessMessages::SUCCESS_USER_CREATED]);
             }else {
                 $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);

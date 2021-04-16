@@ -94,7 +94,7 @@ class SessionController extends Controller{
         $this->user = new UserModel();
 
         # Lleno ese usuario con los datos de la consulta a la DB que hace la funcion getUser()
-        $this->user->getUser($id);
+        $this->user->get($id);
 
         return $this->user;
     }

@@ -18,7 +18,7 @@ class UserModel extends Model implements IModel{
         $this->role = '';
     }
 
-    public function saveUser(){
+    public function save(){
         try {
             $query = $this->prepare('INSERT INTO task_db.users(username, email, password, role) VALUES(:username, :email, :password, :role)');
             $query->execute([
@@ -34,7 +34,7 @@ class UserModel extends Model implements IModel{
         }
     }
 
-    public function getAllUsers(){
+    public function getAll(){
 
         $users = [];
 
@@ -62,7 +62,7 @@ class UserModel extends Model implements IModel{
         }
     }
     
-    public function getUser($id){
+    public function get($id){
 
         try {
             $query = $this->prepare('SELECT * FROM task_db.users WHERE id = :id');
@@ -87,7 +87,7 @@ class UserModel extends Model implements IModel{
 
     }
     
-    public function deleteUser($id){
+    public function delete($id){
 
         try {
 
@@ -103,7 +103,7 @@ class UserModel extends Model implements IModel{
 
     }
     
-    public function updateUser(){
+    public function update(){
 
         try {
             $query = $this->prepare('UPDATE task_db.users SET username = :username, email = :email, password = :password, role = :role WHERE id = :id');
@@ -155,7 +155,7 @@ class UserModel extends Model implements IModel{
     public function comparePasswords($password, $id){
         try {
             # Uso la funcion que ya cree para obtener el usuario con el id
-            $user = $this->getUser($id);
+            $user = $this->get($id);
 
             # Funcion de php para verificar si la contraseña en texto plano es igual a la encriptada que obtiene de la BD
             return password_verify($password, $user->getPassword());
