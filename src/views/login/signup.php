@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3"> 
+                    <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST"> 
 
                         <div class="form-group col-md-6">
                             <label for="username">Nombre de ususario</label>
@@ -36,18 +36,22 @@
                             <input name="password" id="password" class="form-control" type="password" placeholder="Ingrese su contraseña"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Confirmar contraseña</label>
-                            <input name="confirm_password" id="confirm_password" class="form-control" type="password" placeholder="Repita su contraseña" />
+                            <label for="second_password">Confirmar contraseña</label>
+                            <input name="second_password" id="second_password" class="form-control" type="password" placeholder="Repita su contraseña" />
+                        </div>
+                        <div class="mt-2 m-auto col-md-12">
+                            <?php $this->showMessages(); ?>
                         </div>
                         <div class="form-group mt-2 m-auto col-md-6">
-                            <a href="#" class="btn btn-success btn-block">Registrarse</a>
+                            <input type="submit" class="btn btn-success btn-block" value="Registrarse"/>
                         </div>
+                        
                     </form>
 
                     <p class="text-center mt-2">O</p>
 
                     <div class="form-group m-auto col-md-5">
-                        <a href="<?$URL?>/login" class="btn btn-primary btn-block">Ingresar</a>
+                        <a href="<?php echo constant('URL');?>login" class="btn btn-primary btn-block">Ingresar</a>
                     </div>
                 </div>
             </div>
