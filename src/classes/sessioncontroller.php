@@ -1,6 +1,8 @@
 <?php
 
 require_once 'classes/session.php';
+require_once 'models/usermodel.php';
+
 class SessionController extends Controller{
 
     private $user_session;
@@ -61,7 +63,7 @@ class SessionController extends Controller{
             if($this->isPublic()){
                 # No pasa nada, lo deja entrar
             }else{
-                header('Location:' . constant('URL') . 'home');
+                header('Location:' . constant('URL') . 'login');
             }
 
         }
@@ -86,7 +88,7 @@ class SessionController extends Controller{
     function getUserSessionData(){
 
         # Le asigno a $id el id del usuario
-        $id = $this->user_id;
+        $id = $this->session->getCurrentUser();
 
         # Creo un usuario vacio con UserModel
         $this->user = new UserModel();
@@ -135,11 +137,11 @@ class SessionController extends Controller{
 
         for ($i=0; $i < sizeof($this->sites); $i++){
             if($this->sites[$i]['role'] == $role){
-                $url = "/" . $this->sites[$i]['site'];
+                $url = $this->sites[$i]['site'];
                 break;
             }
         }
-        header('Location:' . $url);
+        header('Location:' . constant('URL') . $url);
     }
 
     private function isAuthorized($role){
