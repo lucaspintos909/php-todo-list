@@ -2,18 +2,23 @@
 
 class SuccessMessages{
     #     ESTADO_OBJETO_ACCION
-    const SUCCESS_TASK_CREATE = 'SnGZ7LyR';
-    const SUCCESS_TASK_DELETE = 'e53yqswG';
-    const SUCCESS_TASK_UPDATE = 'dWurK5Xv';
+    const SUCCESS_TASK_CREATED = 'SnGZ7LyR';
+    const SUCCESS_TASK_DELETED = 'e53yqswG';
+    const SUCCESS_TASK_UPDATED = 'dWurK5Xv';
+
+    const SUCCESS_USER_CREATED = 'cb4FqaRe';
+
 
     private $success_list = [];
 
     public function __construct(){
         
         $this->success_list= [
-            SuccessMessages::SUCCESS_TASK_CREATE => 'La tarea se creo correctamente!',
-            SuccessMessages::SUCCESS_TASK_DELETE => 'La tarea se elimino correctamente!',
-            SuccessMessages::SUCCESS_TASK_UPDATE => 'La tarea fue modificada correctamente!'
+            SuccessMessages::SUCCESS_TASK_CREATED => 'La tarea se creo correctamente!',
+            SuccessMessages::SUCCESS_TASK_DELETED => 'La tarea se elimino correctamente!',
+            SuccessMessages::SUCCESS_TASK_UPDATED => 'La tarea fue modificada correctamente!',
+            SuccessMessages::SUCCESS_USER_CREATED => 'El usuario fue creado correctamente! Ingrese con sus datos.'
+
         ];
 
     }
