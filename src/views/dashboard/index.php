@@ -26,22 +26,8 @@
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <a href="#" class="navbar-brand">PHP MYSQL CRUD</a>
-    <button
-
-        class="navbar-toggler"
-
-        type="button"
-
-        data-toggle="collapse"
-
-        data-target="#navbarSupportedContent"
-
-        aria-controls="navbarSupportedContent"
-
-        aria-expanded="false"
-
-        aria-label="Toggle navigation">
+    <a href="#" class="navbar-brand">PHP MYSQL Tasks CRUD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
         <span class="navbar-toggler-icon"></span>
 
@@ -51,32 +37,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesion</a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="<?php constant('URL')?>signup">Registro</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php constant('URL')?>login"">Login</a>
-            </li> -->
         </ul>
         
     </div>
   </div>
 </nav>
 
-<!-- <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Collapsed content</h5>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
- -->
+
+
 <div class="container p-4">
     <div id="editTaskModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
@@ -118,30 +86,14 @@
     </div>
 
     <div class="alert-fixed">
-        <?php if(isset($_SESSION['message'])){ ?>
-        <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
-
-            <?php if($_SESSION['message_type'] == 'danger'){ ?>
-                <i class="fas fa-fire-alt mr-1"></i>
-            <?php }elseif($_SESSION['message_type'] == 'primary') { ?>
-                <i class="fas fa-clipboard-check mr-1"></i>
-            <?php }elseif($_SESSION['message_type'] == 'success') { ?>
-                <i class="fas fa-pencil-alt mr-1"></i>
-            <?php } ?>
-
-            <?= $_SESSION['message'] ?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <?php session_unset();} ?> <!-- Para borrar todos los datos de la sesion-->
-    </div>
+        <?php $this->showMessages(); ?>
+    </div><!-- Para borrar todos los datos de la sesion-->
     <div class="row">
 
         <div class="col-md-4">
 
             <div class="card card-body">
-                <form action="./save_task.php" method="POST">
+                <form action="<?php constant('URL'); ?>/dashboard/saveTask" method="POST">
 
                     <div class="form-group">
                         <label for="title">Titulo</label>
@@ -170,32 +122,29 @@
                 </thead>
                 <tbody>
                     <?php
-                      #$get_tasks_query="SELECT * FROM task";
-                      #$res = mysqli_query($conn, $get_tasks_query);
-                      
-                      #while($task = mysqli_fetch_array($res)){ ?>
+                    foreach ($_SESSION['tasks'] as $task){ ?>
                     <tr>
-                        <!-- <td><?= $task['title']; ?></td>
-                        <td><?= $task['description']; ?></td>
-                        <td><?= $task['created_at']; ?></td> -->
+                        <td><?= $task->getTitle(); ?></td>
+                        <td><?= $task->getDescription(); ?></td>
+                        <td><?= $task->getCreatedAt(); ?></td>
 
                         <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
-                        <!-- <td class="">
+                        <td class="">
                             <div class="buttons">
                                 
-                                <a onclick="showModal(<?php echo $task['id']?>, '<?= $task['title']?>', '<?= $task['description']?>')"
+                                <a onclick="showModal(<?php echo $task->getId();?>, '<?= $task->getTitle();?>', '<?= $task->getDescription();?>')"
                                     class="btn btn-info" aria-label="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $task['id']?>"
+                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $task->getId();?>"
                                     aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
                             </div>
-                        </td> -->
+                        </td>
                     </tr>
-                    <?php #} ?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
