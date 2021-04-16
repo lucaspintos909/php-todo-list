@@ -186,4 +186,12 @@ class SessionController extends Controller{
         $this->session->closeSession();
     }
 
+    function emptyVariables($variables){
+        foreach ($variables as $variable) {
+            if($variable == '' || empty($variable)) return true;
+        }
+
+        return false;
+    } 
+
 }
