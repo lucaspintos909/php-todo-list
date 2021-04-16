@@ -26,11 +26,10 @@ class Login extends SessionController{
             }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $this->redirect('login',['error' => ErrorMessages::ERROR_USER_EMAIL]);
             }
-            #error_log("&&&&&&&&&&&&&&&&&&&&&&&&&&& " . var_dump($this));
             
-            #$model = new LoginModel();
-            $user = $this->model->login($email,$password);
-            
+            $model = new LoginModel();
+            $user = $model->login($email, $password);
+
             if($user != NULL){
                 $this->initialize($user);
             }else{
