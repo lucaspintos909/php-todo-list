@@ -21,7 +21,7 @@ class TaskModel extends Model implements IModel{
                                         VALUES(:user_email, :title, :description)');
             # Ejecuta la consulta
             $query->execute([
-                'user_email'  =>  $this->getTitle(),
+                'user_email'  =>  $this->getUserEmail(),
                 'title'       =>  $this->getTitle(),
                 'description' =>  $this->getDescription()
             ]);
