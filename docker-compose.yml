@@ -23,6 +23,8 @@ services:
       - ./src:/var/www/html
     depends_on:
       - db
+    networks:
+      - docker-net
 
   db:
     container_name: db
@@ -37,4 +39,8 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar las tablas y base de datos
-
+    networks:
+      - docker-net
+networks:
+  docker-net:
+    driver: bridge
