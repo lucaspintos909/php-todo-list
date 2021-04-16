@@ -6,14 +6,16 @@ class ErrorMessages{
     const ERROR_TASK_CREATE = 'AsNF8sgM';
     const ERROR_TASK_DELETE = 'PcAXeF8q';
     const ERROR_TASK_UPDATE = 'd8mXEbmZ';
+    const ERROR_TASK_EMPTY = '9HuLDpXu';
 
     const ERROR_USER_CREATED = '29c7TowW';
     const ERROR_USER_EMPTY = 'aqX2kc7E';
     const ERROR_USER_PASSWORD = 'rp4b463Q';
     const ERROR_USER_EMAIL = 'R8qPVDZP';
     const ERROR_USER_EXISTS = 'Wbht9ACn';
-
     const ERROR_USER_INCORRECT = '5HtdDbXu';
+
+    
 
 
     private $error_list = [];
@@ -30,6 +32,7 @@ class ErrorMessages{
             ErrorMessages::ERROR_USER_EXISTS => 'El email ingresado ya existe, ingrese otro.',
             ErrorMessages::ERROR_USER_CREATED => 'Hubo un error al procesar la solicitud, intente nuevamente.',
             ErrorMessages::ERROR_USER_INCORRECT => 'Email y/o contraseña incorrectos.',
+            ErrorMessages::ERROR_TASK_EMPTY => 'Has dejado campos vacios, llenelos e intente nuevamente.',
         ];
 
     }
