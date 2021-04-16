@@ -20,7 +20,7 @@ class UserModel extends Model implements IModel{
 
     public function saveUser(){
         try {
-            $query = $this->prepare('INSERT INTO task_db.users(user_name, email, password, role) VALUES(:username, :email, :password, :role)');
+            $query = $this->prepare('INSERT INTO task_db.users(username, email, password, role) VALUES(:username, :email, :password, :role)');
             $query->execute([
                 'username'  =>  $this->username,
                 'email'     =>  $this->email,
