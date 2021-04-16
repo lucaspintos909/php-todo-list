@@ -42,7 +42,7 @@ class Signup extends SessionController{
             $user->setRole('user');
 
             # Verifica si existe el usuario
-            if($user->existsUser($user->getUsername())){
+            if($user->existsUser($user->getEmail())){
                 $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EXISTS]);
             }elseif ($user->saveUser()) {
                 $this->redirect('login',['success' => SuccessMessages::SUCCESS_USER_CREATED]);
@@ -55,11 +55,5 @@ class Signup extends SessionController{
         }
     }
 
-    function emptyVariables($variables){
-        foreach ($variables as $variable) {
-            if($variable == '' || empty($variable)) return true;
-        }
-
-        return false;
-    } 
+    
 }
