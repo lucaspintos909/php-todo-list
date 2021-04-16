@@ -68,7 +68,7 @@ class Controller{
         }
 
         # URL completa a la que se va a redirigir al usuario
-        header('Location: ' . constant('URL') . '/' . $route . $params); 
+        header('Location: ' . constant('URL') . $route . $params); 
     }
 
 }
