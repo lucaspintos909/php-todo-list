@@ -10,12 +10,15 @@
 
 </head>
 <body>
-    
     <div class="container mt-5">
         <div class="col-md-6 m-auto">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Iniciar Sesión</h4>
+                </div>
+                
+                <div class="mt-2 ml-2 mr-2">
+                    <?php $this->showMessages(); ?>
                 </div>
 
                 <div class="card-body">
