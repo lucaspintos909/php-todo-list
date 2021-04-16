@@ -13,6 +13,8 @@ class ErrorMessages{
     const ERROR_USER_EMAIL = 'R8qPVDZP';
     const ERROR_USER_EXISTS = 'Wbht9ACn';
 
+    const ERROR_USER_INCORRECT = '5HtdDbXu';
+
 
     private $error_list = [];
 
@@ -25,8 +27,9 @@ class ErrorMessages{
             ErrorMessages::ERROR_USER_EMPTY => 'Has dejado campos incompletos.',
             ErrorMessages::ERROR_USER_PASSWORD => 'Las contraseñas no coinciden.',
             ErrorMessages::ERROR_USER_EMAIL => 'El mail ingresado es incorrecto.',
-            ErrorMessages::ERROR_USER_EXISTS => 'El nombre de usuario ingresado ya existe, ingrese otro.',
-            ErrorMessages::ERROR_USER_CREATED => 'Hubo un error al intentar crear el usuario, intente nuevamente.',
+            ErrorMessages::ERROR_USER_EXISTS => 'El email ingresado ya existe, ingrese otro.',
+            ErrorMessages::ERROR_USER_CREATED => 'Hubo un error al procesar la solicitud, intente nuevamente.',
+            ErrorMessages::ERROR_USER_INCORRECT => 'Email y/o contraseña incorrectos.',
         ];
 
     }
