@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form>
+                    <form action="<?php constant('URL');?>login/authenticate" method="POST">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input name="email" id="email" class="form-control" type="email" />
