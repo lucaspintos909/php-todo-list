@@ -137,11 +137,12 @@ class TaskModel extends Model implements IModel{
     public function update(){
 
         try {
-            $query = $this->prepare('UPDATE task_db.tasks SET title = :title, description = :description WHERE id = :id');
-            $query->excecute([
+            $query = $this->prepare('UPDATE task_db.tasks SET title = :title, description = :description WHERE id = :id && user_email = :user_email');
+            $query->execute([
                 'id'          =>  $this->getId(),
                 'title'       =>  $this->getTitle(),
-                'description' =>  $this->getDescription(), 
+                'description' =>  $this->getDescription(),
+                'user_email'  =>  $this->getUserEmail()
             ]);
 
             return true;
