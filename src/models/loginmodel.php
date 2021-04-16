@@ -1,6 +1,4 @@
 <?php
-  
-require_once 'models/loginmodel.php';
 class LoginModel extends Model{
 
     function __construct(){
