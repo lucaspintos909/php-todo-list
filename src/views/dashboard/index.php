@@ -55,7 +55,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="edit_task.php" method="POST">
+                <form action="<?php constant('URL') ?>dashboard/editTask" method="POST">
                     <div class="modal-body">
 
                         <div class="d-none">
