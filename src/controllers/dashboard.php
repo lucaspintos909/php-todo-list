@@ -52,10 +52,38 @@ class Dashboard extends SessionController{
             }
             
         }else {
-            $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
+            $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
         }
     }
 
+    function editTask(){
+        if ($this->existPOST(['id','title', 'description'])) {
+            
+            $id = $this->getPOST('id');
+            $title = $this->getPOST('title');
+            $description = $this->getPOST('description');
+            
+            # Verifica si hay campos vacios
+            if($this->emptyVariables([$id, $title, $description])){
+                
+                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+            
+            }
+            $this->taskmodel->setId($id);
+            $this->taskmodel->setTitle($title);
+            $this->taskmodel->setDescription($description);
+            $this->taskmodel->setUserEmail($this->user->getEmail());
+
+            if($this->taskmodel->update()){
+                $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
+            }else{
+                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_UPDATE]);
+            }
+            
+        }else {
+            $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+        }
+    }
 
     function emptyVariables($variables){
         foreach ($variables as $variable) {
