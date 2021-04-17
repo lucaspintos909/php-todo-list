@@ -1,4 +1,5 @@
 /mysql
 /.idea
+/ssl-certs
 ### dotenv ###
 .env
