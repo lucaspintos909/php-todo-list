@@ -17,7 +17,7 @@
             "role": ""
         },
         {
-            "site": "dashboard",
+            "site": "tasks",
             "access": "private",
             "role": "user"
         },
@@ -34,7 +34,7 @@
     ],
     "default-sites": {
         "": "",
-        "user": "dashboard",
+        "user": "tasks",
         "admin": "admin"  
     }
 
