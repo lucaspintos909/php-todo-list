@@ -3,9 +3,9 @@
 class ErrorMessages{
 
     #     ESTADO_OBJETO_ACCION
-    const ERROR_TASK_CREATE = 'AsNF8sgM';
-    const ERROR_TASK_DELETE = 'PcAXeF8q';
-    const ERROR_TASK_UPDATE = 'd8mXEbmZ';
+    const ERROR_TASK_CREATED = 'AsNF8sgM';
+    const ERROR_TASK_DELETED = 'PcAXeF8q';
+    const ERROR_TASK_UPDATED = 'd8mXEbmZ';
     const ERROR_TASK_EMPTY = '9HuLDpXu';
 
     const ERROR_USER_CREATED = '29c7TowW';
@@ -23,9 +23,9 @@ class ErrorMessages{
     public function __construct(){
         
         $this->error_list= [
-            ErrorMessages::ERROR_TASK_CREATE => 'Hubo un error al crear la tarea, intente nuevamente.',
-            ErrorMessages::ERROR_TASK_DELETE => 'Hubo un error al eliminar la tarea, intente nuevamente.',
-            ErrorMessages::ERROR_TASK_UPDATE => 'Hubo un error al modificar la tarea, intente nuevamente.',
+            ErrorMessages::ERROR_TASK_CREATED => 'Hubo un error al crear la tarea, intente nuevamente.',
+            ErrorMessages::ERROR_TASK_DELETED => 'Hubo un error al eliminar la tarea, intente nuevamente.',
+            ErrorMessages::ERROR_TASK_UPDATED => 'Hubo un error al modificar la tarea, intente nuevamente.',
             ErrorMessages::ERROR_USER_EMPTY => 'Has dejado campos incompletos.',
             ErrorMessages::ERROR_USER_PASSWORD => 'Las contraseñas no coinciden.',
             ErrorMessages::ERROR_USER_EMAIL => 'El mail ingresado es incorrecto.',
