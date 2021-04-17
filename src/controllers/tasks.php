@@ -1,7 +1,7 @@
 <?php
 
 require_once 'models/taskmodel.php';
-class Dashboard extends SessionController{
+class Tasks extends SessionController{
 
     private $user;
     private $tasks;
@@ -21,7 +21,7 @@ class Dashboard extends SessionController{
     }
 
     function render(){
-        $this->view->render('dashboard/index');
+        $this->view->render('tasks/index');
     }
 
     public function getTasks(){
@@ -37,7 +37,7 @@ class Dashboard extends SessionController{
             # Verifica si hay campos vacios
             if($this->emptyVariables([$title, $description])){
                 
-                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+                $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
             
             }else {
 
@@ -46,9 +46,9 @@ class Dashboard extends SessionController{
                 $this->taskmodel->setUserEmail($this->user->getEmail());
 
                 if($this->taskmodel->save()){
-                    $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_CREATED]);
+                    $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_CREATED]);
                 }else{
-                    $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_CREATE]);
+                    $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_CREATED]);
                 }
 
             }
@@ -56,7 +56,7 @@ class Dashboard extends SessionController{
             
             
         }else {
-            $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+            $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
         }
     }
 
@@ -70,7 +70,7 @@ class Dashboard extends SessionController{
             # Verifica si hay campos vacios
             if($this->emptyVariables([$id, $title, $description])){
                 
-                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+                $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
             
             }else {
                 $this->taskmodel->setId($id);
@@ -79,15 +79,38 @@ class Dashboard extends SessionController{
                 $this->taskmodel->setUserEmail($this->user->getEmail());
 
                 if($this->taskmodel->update()){
-                    $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
+                    $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
                 }else{
-                    $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_UPDATE]);
+                    $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_UPDATED]);
                 }
-            }
-            
-            
+            }  
         }else {
-            $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+            $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
+        }
+    }
+
+    function deleteTask(){
+        if ($this->existGET(['id'])) {
+            
+            $id = $this->getGET('id');
+            
+            # Verifica si hay campos vacios
+            if($this->emptyVariables([$id])){
+                
+                $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_DELETED]);
+            
+            }else {
+
+                $this->taskmodel->setUserEmail($this->user->getEmail());
+
+                if($this->taskmodel->delete($id)){
+                    $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_DELETED]);
+                }else{
+                    $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_DELETED]);
+                }
+            }  
+        }else {
+            $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_DELETED]);
         }
     }
 

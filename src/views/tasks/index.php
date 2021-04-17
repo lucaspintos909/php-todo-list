@@ -55,7 +55,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?php constant('URL') ?>dashboard/editTask" method="POST">
+                <form action="<?php constant('URL') ?>tasks/editTask" method="POST">
                     <div class="modal-body">
 
                         <div class="d-none">
@@ -93,7 +93,7 @@
         <div class="col-md-4">
 
             <div class="card card-body">
-                <form action="<?php constant('URL'); ?>/dashboard/saveTask" method="POST">
+                <form action="<?php constant('URL'); ?>/tasks/saveTask" method="POST">
 
                     <div class="form-group">
                         <label for="title">Titulo</label>
@@ -137,7 +137,7 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-danger" href="delete_task.php?id=<?php echo $task->getId();?>"
+                                <a class="btn btn-danger" href="<?php constant('URL') ?>tasks/deleteTask?id=<?php echo $task->getId();?>"
                                     aria-label="Eliminar">
                                     <i class="fas fa-backspace"></i>
                                 </a>
