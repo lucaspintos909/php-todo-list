@@ -33,22 +33,26 @@ class Signup extends SessionController{
             # Verifica que el email ingresado sea valido
             }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EMAIL]);
-            }
-
-            $user = new UserModel();
-            $user->setUsername($username);
-            $user->setEmail($email);
-            $user->setPassword($password);
-            $user->setRole('user');
-
-            # Verifica si existe el usuario
-            if($user->existsUser($user->getEmail())){
-                $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EXISTS]);
-            }elseif ($user->save()) {
-                $this->redirect('login',['success' => SuccessMessages::SUCCESS_USER_CREATED]);
             }else {
-                $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
+                
+                $user = new UserModel();
+                $user->setUsername($username);
+                $user->setEmail($email);
+                $user->setPassword($password);
+                $user->setRole('user');
+
+                # Verifica si existe el usuario
+                if($user->existsUser($user->getEmail())){
+                    $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EXISTS]);
+                }elseif ($user->save()) {
+                    $this->redirect('login',['success' => SuccessMessages::SUCCESS_USER_CREATED]);
+                }else {
+                    $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
+                }
+                
             }
+
+            
 
         }else {
             $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
