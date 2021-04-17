@@ -92,7 +92,7 @@ class UserModel extends Model implements IModel{
         try {
 
             $query = $this->prepare('DELETE FROM task_db.users WHERE id = :id');
-            $query->excecute(['id' => $id]);
+            $query->execute(['id' => $id]);
 
             return true;
 
@@ -107,7 +107,7 @@ class UserModel extends Model implements IModel{
 
         try {
             $query = $this->prepare('UPDATE task_db.users SET username = :username, email = :email, password = :password, role = :role WHERE id = :id');
-            $query->excecute([
+            $query->execute([
                 'id'        =>  $this->id,
                 'username'  =>  $this->username,
                 'email'     =>  $this->email,
