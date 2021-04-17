@@ -121,9 +121,12 @@ class TaskModel extends Model implements IModel{
 
         try {
             # Prepara la consulta para ser ejecutada (execute) con sus valores
-            $query = $this->prepare('DELETE FROM task_db.tasks WHERE id = :id');
+            $query = $this->prepare('DELETE FROM task_db.tasks WHERE id = :id && user_email = :user_email');
             # Ejecuta la consults
-            $query->excecute(['id' => $id]);
+            $query->execute([
+                'id' => $id,
+                'user_email' => $this->user_email
+            ]);
 
             return true;
 
