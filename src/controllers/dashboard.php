@@ -39,17 +39,21 @@ class Dashboard extends SessionController{
                 
                 $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
             
-            }
+            }else {
 
-            $this->taskmodel->setTitle($title);
-            $this->taskmodel->setDescription($description);
-            $this->taskmodel->setUserEmail($this->user->getEmail());
+                $this->taskmodel->setTitle($title);
+                $this->taskmodel->setDescription($description);
+                $this->taskmodel->setUserEmail($this->user->getEmail());
 
-            if($this->taskmodel->save()){
-                $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_CREATED]);
-            }else{
-                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_CREATE]);
+                if($this->taskmodel->save()){
+                    $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_CREATED]);
+                }else{
+                    $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_CREATE]);
+                }
+
             }
+            
+            
             
         }else {
             $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
@@ -68,17 +72,19 @@ class Dashboard extends SessionController{
                 
                 $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
             
-            }
-            $this->taskmodel->setId($id);
-            $this->taskmodel->setTitle($title);
-            $this->taskmodel->setDescription($description);
-            $this->taskmodel->setUserEmail($this->user->getEmail());
+            }else {
+                $this->taskmodel->setId($id);
+                $this->taskmodel->setTitle($title);
+                $this->taskmodel->setDescription($description);
+                $this->taskmodel->setUserEmail($this->user->getEmail());
 
-            if($this->taskmodel->update()){
-                $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
-            }else{
-                $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_UPDATE]);
+                if($this->taskmodel->update()){
+                    $this->redirect('dashboard',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
+                }else{
+                    $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_UPDATE]);
+                }
             }
+            
             
         }else {
             $this->redirect('dashboard',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
@@ -87,7 +93,7 @@ class Dashboard extends SessionController{
 
     function emptyVariables($variables){
         foreach ($variables as $variable) {
-            if($variable == '' || empty($variable)) return true;
+            if($variable == '' || empty($variable)) {return true;}
         }
 
         return false;
