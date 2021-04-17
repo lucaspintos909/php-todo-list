@@ -1,5 +1,18 @@
 version: '3.5'
 services:
+  https-portal:
+    container_name: ssl
+    image: steveltn/https-portal:1
+    depends_on:
+        - php
+    ports:
+        - 80:80
+        - 443:443
+    restart: always
+    volumes:
+        - ./ssl_certs:/var/lib/https-portal
+    environment:
+        DOMAINS: 'tareas.lucaspintos.tech -> http://34.230.185.184:8080 #production'
   php:
     container_name: php
     build:
@@ -10,12 +23,14 @@ services:
       - ./src:/var/www/html
     depends_on:
       - db
+    networks:
+      - docker-net
 
   db:
     container_name: db
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: php-mysql
+      MYSQL_DATABASE: task_db
       MYSQL_USER: lucas
       MYSQL_PASSWORD: 123456
       MYSQL_ROOT_PASSWORD: root
@@ -24,4 +39,8 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar las tablas y base de datos
-
+    networks:
+      - docker-net
+networks:
+  docker-net:
+    driver: bridge

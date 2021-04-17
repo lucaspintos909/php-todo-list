@@ -1,0 +1,41 @@
+{
+
+    "sites":[
+        {
+            "site": "",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "login",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "signup",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "tasks",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "user",
+            "access": "private",
+            "role": "user"
+        },
+        {
+            "site": "admin",
+            "access": "private",
+            "role": "admin"
+        }
+    ],
+    "default-sites": {
+        "": "",
+        "user": "tasks",
+        "admin": "admin"  
+    }
+
+}
