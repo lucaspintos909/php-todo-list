@@ -8,7 +8,7 @@ class Controller{
     }
 
     function loadModel($model){
-        $url = 'models/' . $model . '/model.php';
+        $url = 'models/' . $model . 'model.php';
 
         if(file_exists($url)){
             require_once $url;
