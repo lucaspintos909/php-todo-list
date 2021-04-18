@@ -27,8 +27,7 @@ class Login extends SessionController{
                 $this->redirect('login',['error' => ErrorMessages::ERROR_USER_EMAIL]);
             }
             
-            $model = new LoginModel();
-            $user = $model->login($email, $password);
+            $user = $this->model->login($email, $password);
 
             if($user != NULL){
                 $this->initialize($user);
