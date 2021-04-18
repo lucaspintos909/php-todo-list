@@ -1,7 +1,7 @@
 <?php
 
 include_once 'models/usermodel.php';
-class Signup extends SessionController{
+class SignUp extends SessionController{
 
     function __construct(){
         parent::__construct();
