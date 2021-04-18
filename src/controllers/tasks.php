@@ -1,20 +1,20 @@
 <?php
 
-require_once 'models/taskmodel.php';
+require_once 'models/tasksmodel.php';
 class Tasks extends SessionController{
 
     private $user;
     private $tasks;
-    private $taskmodel;
+    private $task_model;
 
     function __construct(){
         parent::__construct();
-        
-        $this->taskmodel = new TaskModel();
+
+        $this->task_model = new TasksModel();
 
         $this->user = $this->getUserSessionData();
 
-        $this->tasks = $this->taskmodel->getAllUserTasks($this->user->getEmail());
+        $this->tasks = $this->task_model->getAllUserTasks($this->user->getEmail());
 
         $_SESSION['tasks'] = $this->tasks;
 
@@ -41,11 +41,11 @@ class Tasks extends SessionController{
             
             }else {
 
-                $this->taskmodel->setTitle($title);
-                $this->taskmodel->setDescription($description);
-                $this->taskmodel->setUserEmail($this->user->getEmail());
+                $this->model->setTitle($title);
+                $this->model->setDescription($description);
+                $this->model->setUserEmail($this->user->getEmail());
 
-                if($this->taskmodel->save()){
+                if($this->model->save()){
                     $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_CREATED]);
                 }else{
                     $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_CREATED]);
@@ -73,12 +73,12 @@ class Tasks extends SessionController{
                 $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_EMPTY]);
             
             }else {
-                $this->taskmodel->setId($id);
-                $this->taskmodel->setTitle($title);
-                $this->taskmodel->setDescription($description);
-                $this->taskmodel->setUserEmail($this->user->getEmail());
+                $this->model->setId($id);
+                $this->model->setTitle($title);
+                $this->model->setDescription($description);
+                $this->model->setUserEmail($this->user->getEmail());
 
-                if($this->taskmodel->update()){
+                if($this->model->update()){
                     $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_UPDATED]);
                 }else{
                     $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_UPDATED]);
@@ -101,9 +101,9 @@ class Tasks extends SessionController{
             
             }else {
 
-                $this->taskmodel->setUserEmail($this->user->getEmail());
+                $this->model->setUserEmail($this->user->getEmail());
 
-                if($this->taskmodel->delete($id)){
+                if($this->model->delete($id)){
                     $this->redirect('tasks',['success' => SuccessMessages::SUCCESS_TASK_DELETED]);
                 }else{
                     $this->redirect('tasks',['error' => ErrorMessages::ERROR_TASK_DELETED]);
