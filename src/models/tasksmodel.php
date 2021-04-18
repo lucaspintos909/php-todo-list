@@ -1,6 +1,6 @@
 <?php
 
-class TaskModel extends Model implements IModel{
+class TasksModel extends Model implements IModel{
 
     private $id;
     private $user_email;
@@ -45,7 +45,7 @@ class TaskModel extends Model implements IModel{
             while ($task_query = $query->fetch(PDO::FETCH_ASSOC)) {
 
                 # Agarro todo lo que viene de la consulta y le setteo cada variable al usuario
-                $task = new TaskModel();
+                $task = new TasksModel();
                 $task->setId($task_query['id']);
                 $task->setTitle($task_query['title']);
                 $task->setUserEmail($task_query['user_email']);
@@ -73,7 +73,7 @@ class TaskModel extends Model implements IModel{
             while ($task_query = $query->fetch(PDO::FETCH_ASSOC)) {
 
                 # Agarro todo lo que viene de la consulta y le setteo cada variable al usuario
-                $task = new TaskModel();
+                $task = new TasksModel();
                 $task->setId($task_query['id']);
                 $task->setTitle($task_query['title']);
                 $task->setUserEmail($task_query['user_email']);
