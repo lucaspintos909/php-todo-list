@@ -35,3 +35,7 @@ jobs:
       - name: Docker build lucaspintos/php-mvc
         run: |
           docker build . -t lucaspintos909/php-mvc
+          
+      - name : Docker Push
+        run: |
+          docker push lucaspintos909/php-mvc
