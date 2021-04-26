@@ -1,14 +1,15 @@
 <?php
 
 # Url de la pagina
-define('URL', 'http://localhost:8080/');
+define('URL', $_ENV['URL']);
 
 # Base de datos
-define('HOST', 'db');
-define('DB', 'task_db');
-define('USER', 'root');
-define('PASSWORD', 'root');
-define('CHARSET', 'utf8mb4');
+define('HOST', $_ENV['HOST']);
+define('DB', $_ENV['DB']);
+define('USER', $_ENV['USER']);
+define('PASSWORD', $_ENV['PASSWORD']);
+define('CHARSET', $_ENV['CHARSET']);
+
 
 
 
