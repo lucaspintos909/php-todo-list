@@ -13,14 +13,14 @@ services:
         - ./ssl_certs:/var/lib/https-portal
     environment:
         DOMAINS: 'tareas.lucaspintos.tech -> http://34.230.185.184:8080 #production'
+
   php:
     container_name: php
-    build:
-      context: ./
-    ports: 
+    image: lucaspintos909/php-mvc
+    ports:
       - 8080:80
-    volumes:
-      - ./src:/var/www/html
+    #volumes:
+    #  - ./src:/var/www/html
     depends_on:
       - db
     networks:
@@ -38,9 +38,18 @@ services:
       - 3360:3306
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar las tablas y base de datos
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar la creacion de las tablas y base de datos
     networks:
       - docker-net
+      -
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 30
+
+
 networks:
   docker-net:
     driver: bridge
