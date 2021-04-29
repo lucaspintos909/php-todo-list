@@ -16,11 +16,11 @@ services:
 
   php:
     container_name: php
-    image: lucaspintos909/php-pdo-mysqli
+    image: lucaspintos909/task-manager-php:latest
     ports:
       - 8080:80
     volumes:
-      - ./src:/var/www/html
+      - ./src/config/config.php:/var/www/html/config/config.php
     depends_on:
       - db
     networks:
