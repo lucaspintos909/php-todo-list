@@ -1,27 +1,27 @@
 version: '3.5'
 services:
-  #https-portal:
-  #  container_name: ssl
-  #  image: steveltn/https-portal:1
-  #  depends_on:
-  #      - php
-  #  ports:
-  #      - 80:80
-  #      - 443:443
-  #  restart: always
-  # volumes:
-  #     - ./ssl_certs:/var/lib/https-portal
-  #  environment:
-  #      DOMAINS: 'tareas.lucaspintos.tech -> http://54.221.169.122:8080 #production'
+  https-portal:
+    container_name: ssl
+    image: steveltn/https-portal:1
+    depends_on:
+        - php
+    ports:
+        - 80:80
+        - 443:443
+    restart: always
+   volumes:
+       - ./ssl_certs:/var/lib/https-portal
+    environment:
+        DOMAINS: 'tareas.lucaspintos.tech -> http://54.221.169.122:8080 #production'
 
   php:
     container_name: php
-    image: lucaspintos909/php-mvc
+    build:
+      context: .
     ports:
       - 8080:80
     volumes:
-      - ./src/.env:/var/www/html/.env
-    #  - ./src:/var/www/html
+      - ./src:/var/www/html
     depends_on:
       - db
     networks:
