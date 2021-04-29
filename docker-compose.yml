@@ -9,15 +9,14 @@ services:
         - 80:80
         - 443:443
     restart: always
-   volumes:
+    volumes:
        - ./ssl_certs:/var/lib/https-portal
     environment:
         DOMAINS: 'tareas.lucaspintos.tech -> http://54.221.169.122:8080 #production'
 
   php:
     container_name: php
-    build:
-      context: .
+    image: lucaspintos909/php-pdo-mysqli
     ports:
       - 8080:80
     volumes:
@@ -42,15 +41,6 @@ services:
       - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar la creacion de las tablas y base de datos
     networks:
       - docker-net
-
-  watchtower:
-    container_name: watchtower
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/.docker/config.json:/config.json
-    command: --interval 30
-
 
 networks:
   docker-net:
