@@ -28,6 +28,8 @@ Con el desarrollo de este proyecto pude aprender las bases de PHP y la arquitect
 <br>
 Para el deploy del demo utilice un servidor EC2 de AWS y un dominio .tech, estos servicios los obtuve gratuitamente gracias a github students, que otorga varios servicios a estudiantes.
 <br>
+<br>
+El proyecto tambien tiene un sistema de usuarios y sesiones (registro y login) para que cada usuario pueda tener sus tareas y no interfieran con las de otros.
 
 
 
