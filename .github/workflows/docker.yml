@@ -30,9 +30,9 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       # Runs a set of commands using the runners shell
-      - name: Docker build lucaspintos909/task-manager-php
+      - name: Docker build lucaspintos909/php-todo-list
         run: |
-          docker build ./deploy-files/Dockerfile -t lucaspintos909/php-todo-list:latest
+          docker build . -t lucaspintos909/php-todo-list:latest
 
       - name : Docker Push
         run: |
