@@ -38,7 +38,7 @@ services:
       - 3360:3306
     volumes:
       - ./mysql:/var/lib/mysql
-      - ../setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar la creacion de las tablas y base de datos
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql # Archivo para inicializar la creacion de las tablas y base de datos
     networks:
       - docker-net
 
