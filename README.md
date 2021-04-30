@@ -24,9 +24,13 @@
 
 [![Screenshot][product-screenshot]](https://tareas.lucaspintos.tech)
 
-Con el desarrollo de este proyecto pude aprender las bases de PHP y la arquitectura MVC, la tecnologia docker, y además de eso tambien a implementar las github actions con despliegue continuo (CD o continuous deployment). 
+Con el desarrollo de este proyecto pude aprender las bases de PHP y la arquitectura MVC, la tecnologia docker, y además de eso tambien a implementar las github actions con despliegue continuo (CD o continuous deployment).
+<br>
 <br>
 Para el deploy del demo utilice un servidor EC2 de AWS y un dominio .tech, estos servicios los obtuve gratuitamente gracias a github students, que otorga varios servicios a estudiantes.
+<br>
+<br>
+El proyecto tiene un sistema de usuarios y sesiones (registro y login) para que cada usuario pueda tener sus tareas y no interfieran con las de otros.
 
 
 
@@ -60,22 +64,22 @@ En el caso de no querer usar docker puedes usar XAMPP o similares.
 
 ### Instalacion y uso local
 
-1. #####Clonar el repositorio.
+1. Clonar el repositorio.
  
    ```sh
    git clone https://github.com/lucaspintos909/php-todo-list.git
    ```
-2. ####Cambiar usuario y contraseña de la base de datos en `docker-compose.yml` (opcional).
+2. #### Cambiar usuario y contraseña de la base de datos en `docker-compose.yml` (opcional).
    -  Si cambia el usuario y/o la contraseña en `docker-compose.yml` debera hacerlo tambien en el archivo de configuracion de PHP en `/src/config/config.php`,
     las constantes `USER` y `PASSWORD`. Asegurese de que coincidan en ambos archivos, de lo contrario dara errores.
-3. ####Correr el proyecto
+3. #### Correr el proyecto
    ```sh
    docker-compose up -d
    ```
    - #### Consejo: Espere un tiempo (5min dependiendo de su pc) hasta que se cree correctamente la base de datos (contenedor de docker), de lo contrario PHP no podra conectarse y le dara error.
    - En caso de que no quieras usar docker y estes usando XAMPP o similares, debes cambiar la contraseña y el usuario de la base datos, en el archivo de configuracion de PHP 
     `/src/config/config.php` por las que configuraste a la hora de instalar XAMPP o lo que estes usando.
- 4. ####Abrir el navegador
+ 4. #### Abrir el navegador
      - Entrar en la direccion `localhost:8080`. <br>
      - Listo!
     
