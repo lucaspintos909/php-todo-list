@@ -32,8 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Docker build lucaspintos909/task-manager-php
         run: |
-          docker build . -t lucaspintos909/task-manager-php:latest
+          docker build ./deploy-files/Dockerfile -t lucaspintos909/php-todo-list:latest
 
       - name : Docker Push
         run: |
-          docker push lucaspintos909/task-manager-php
+          docker push lucaspintos909/php-todo-list
