@@ -1,26 +1,12 @@
 version: '3.5'
 services:
-  https-portal:
-    container_name: ssl
-    image: steveltn/https-portal:1
-    depends_on:
-        - php
-    ports:
-        - 80:80
-        - 443:443
-    restart: always
-    volumes:
-       - ./ssl_certs:/var/lib/https-portal
-    environment:
-        DOMAINS: 'tareas.lucaspintos.tech -> http://54.221.169.122:8080 #production'
-
   php:
     container_name: php
-    image: lucaspintos909/task-manager-php:latest
+    image: lucaspintos909/php-pdo-mysqli:latest
     ports:
       - 8080:80
     volumes:
-      - ./src/config/config.php:/var/www/html/config/config.php
+      - ./src:/var/www/html/
     depends_on:
       - db
     networks:
@@ -31,8 +17,8 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_DATABASE: task_db
-      MYSQL_USER: lucas
-      MYSQL_PASSWORD: 123456
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3360:3306

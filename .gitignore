@@ -1,4 +1,6 @@
 /mysql
 /.idea
 /ssl-certs
+/docker-compose.override.yml
 ### dotenv ###
+.env

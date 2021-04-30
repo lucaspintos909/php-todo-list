@@ -1,7 +1,7 @@
 <?php
 
 # Url de la pagina
-const URL = "http://localhost:8080/";
+const URL = "http://example.com/";
 
 # Base de datos
 const HOST = 'db';
