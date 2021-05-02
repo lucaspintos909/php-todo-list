@@ -9,5 +9,18 @@
 </head>
 <body>
     <h1>Admin Page</h1>
+
+    <?php
+        foreach ($this->data as $user){
+            echo $user->getId();
+            echo "<br>";
+            echo $user->getUsername();
+            echo "<br>";
+            echo $user->getEmail();
+            echo "<br>";
+            echo $user->getRole();
+            echo "<br>";
+        }
+    ?>
 </body>
 </html>
