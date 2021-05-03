@@ -1,3 +1,4 @@
+
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -10,4 +11,8 @@
 
 .text-center {
     text-align: center;
+}
+
+.icon-nav{
+    max-width: 2rem!important;
 }
