@@ -29,7 +29,7 @@ a {
         <span id="error">404</span>
         <h1>No se ha encontrado la pagina.</h1>
         <h2> <span class="ascii">╰༼ •̀۝•́ ༽╯ &nbsp; &nbsp; ༼ノಠ益ಠ༽ノ彡┻━┻</span></h2>
-        <a href="<?php constant('URL');?>home">Ir a pagina principal</a>
+        <a href="<?php constant('URL');?>/">Ir a pagina principal</a>
     </div>
 
 </body>
