@@ -8,7 +8,7 @@
 
 
         function render($name, $data = []){
-            $this->data = $data;
+            $this->data['data'] = $data;
 
             $this->handleMessages();
 
