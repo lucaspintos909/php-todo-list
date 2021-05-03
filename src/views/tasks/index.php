@@ -79,11 +79,11 @@ include_once 'views/includes/header.php';
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($_SESSION['tasks'] as $task){ ?>
+                    foreach ($this->data['data'] as $task){ ?>
                     <tr>
-                        <td><?= $task->getTitle(); ?></td>
-                        <td><?= $task->getDescription(); ?></td>
-                        <td><?= $task->getCreatedAt(); ?></td>
+                        <td><?php echo $task->getTitle(); ?></td>
+                        <td><?php echo $task->getDescription(); ?></td>
+                        <td><?php echo $task->getCreatedAt(); ?></td>
 
                         <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
                         <td class="">
@@ -106,7 +106,6 @@ include_once 'views/includes/header.php';
             </table>
         </div>
     </div>
-
 </div>
 
 <?php
