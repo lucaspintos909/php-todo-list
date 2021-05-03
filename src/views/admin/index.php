@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMIN</title>
-</head>
-<body>
-    <h1>Admin Page</h1>
+<?php
+include_once 'views/includes/header.php';
+?>
+
+<div class="container">
+
+    <h1 class="">Admin Page</h1>
 
     <?php
         foreach ($this->data as $user){
@@ -22,5 +18,11 @@
             echo "<br>";
         }
     ?>
-</body>
-</html>
+
+
+</div>
+
+
+<?php
+include_once 'views/includes/footer.php';
+?>
