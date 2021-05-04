@@ -1,4 +1,23 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Nunito&display=swap');
+.body{
+    font-family: 'Nunito', sans-serif;
+}
+
+.table-item{
+    padding-top: 1.2rem!important;
+}
+
+.font-caveat{
+    font-family: 'Caveat', cursive;
+}
+
+.title-navbar{
+    display: flex!important;
+    font-size: 1.7rem !important;
+    align-items: center;
+}
+
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -14,5 +33,5 @@
 }
 
 .icon-nav{
-    max-width: 2rem!important;
+    max-width: 1.8rem!important;
 }
