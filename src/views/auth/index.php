@@ -33,24 +33,37 @@
                 <span class="navbar-toggler-icon"></span>
 
             </button>
-            <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <form action="<?php constant('URL');?>auth/authenticate" method="POST" class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto d-lg-none">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php constant('URL')?>login">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php constant('URL')?>signup">Registrarse</a>
+                    </li>
+                </ul>
 
-                    <input name="email" id="email" class="form-control me-2" type="email" placeholder="Email" aria-label="Search">
+            </div>
+            <div class="d-none d-lg-flex justify-content-end">
+                <form action="<?php constant('URL');?>login/authenticate" method="POST" class="d-flex">
 
-                    <input name="password" id="password" class="form-control me-2 ml-3" type="password" placeholder="Contraseña" aria-label="Password">
+                    <input name="email" id="email" class="form-control me-2" type="email" placeholder="Email" aria-label="Email" required>
+
+                    <input name="password" id="password" class="form-control me-2 ml-3" type="password" placeholder="Contraseña" aria-label="Password" required>
 
                     <button class="btn btn-outline-success ml-3" type="submit">Ingresar</button>
 
                 </form>
-
             </div>
         </div>
     </nav>
 
     <div class="container mt-5">
-        <div class="col-md-12 offset-md-1asd">
+        <div class="col-md-6">
+            <h2>Hola</h2>
+        </div>
+        <div class="col-md-6 offset-md-1asd">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Registrarse</h4>
@@ -59,23 +72,23 @@
                 <div class="card-body">
                     <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST">
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="username">Nombre de ususario</label>
-                            <input name="username" id="username" class="form-control" type="text" placeholder="Ej. Pepe"/>
+                            <input name="username" id="username" class="form-control" type="text" placeholder="Ej. Pepe" required />
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="email">Email</label>
-                            <input name="email" id="email" class="form-control" type="email" placeholder="nombre@ejemplo.com"/>
+                            <input name="email" id="email" class="form-control" type="email" placeholder="nombre@ejemplo.com" required />
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="password">Contraseña</label>
-                            <input name="password" id="password" class="form-control" type="password" placeholder="Ingrese su contraseña"/>
+                            <input name="password" id="password" class="form-control" type="password" placeholder="Ingrese su contraseña" required />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="second_password">Confirmar contraseña</label>
-                            <input name="second_password" id="second_password" class="form-control" type="password" placeholder="Repita su contraseña" />
+                            <input name="second_password" id="second_password" class="form-control" type="password" placeholder="Repita su contraseña" required />
                         </div>
                         <div class="mt-2 m-auto col-md-12">
                             <?php $this->showMessages(); ?>
@@ -85,12 +98,6 @@
                         </div>
 
                     </form>
-
-                    <p class="text-center mt-2">O</p>
-
-                    <div class="form-group m-auto col-md-5">
-                        <a href="<?php echo constant('URL');?>login" class="btn btn-primary btn-block">Ingresar</a>
-                    </div>
                 </div>
             </div>
         </div>
