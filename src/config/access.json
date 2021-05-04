@@ -12,6 +12,16 @@
             "role": ""
         },
         {
+            "site": "login",
+            "access": "public",
+            "role": ""
+        },
+        {
+            "site": "signup",
+            "access": "public",
+            "role": ""
+        },
+        {
             "site": "tasks",
             "access": "private",
             "role": "user"
@@ -28,7 +38,7 @@
         }
     ],
     "default-sites": {
-        "": "",
+        "": "auth",
         "user": "tasks",
         "admin": "admin"  
     }
