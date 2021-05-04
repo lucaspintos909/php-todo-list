@@ -27,7 +27,6 @@
         <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
             <?= $_SERVER['REQUEST_URI'] == '/admin' ? "Todo List Admin Page" : "Todo List" ?>
             <img src="<?= $_SERVER['REQUEST_URI'] == '/settings' ? 'assets/icons/settings.svg' : 'assets/icons/checkbox.svg'?>" class="icon-nav">
-            <link rel="shortcut icon" href="" />
 
         </a>
 
@@ -42,7 +41,7 @@
                     <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/tasks' ? 'active' : ''?>" href="<?php constant('URL')?>tasks">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/configuration' ? 'active' : ''?>" href="<?php constant('URL')?>settings">Configuración</a>
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/settings' ? 'active' : ''?>" href="<?php constant('URL')?>settings">Configuración</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-danger" href="<?php constant('URL')?>logout">Cerrar Sesión</a>
