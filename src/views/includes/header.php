@@ -19,16 +19,16 @@
 
 </head>
 
-<body>
+<body class="body">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container container-fluid">
 
 
         <?php if($_SERVER['REQUEST_URI'] == '/admin'){ ?>
-            <a href="<?php constant('URL')?>" class="navbar-brand"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List Admin Page</a>
+            <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List Admin Page</a>
         <?php } else {?>
-            <a href="<?php constant('URL')?>" class="navbar-brand"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List</a>
+            <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List</a>
         <?php }?>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,10 +39,10 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php constant('URL')?>logout">Configuracion</a>
+                    <a class="nav-link" href="<?php constant('URL')?>">Configuración</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesion</a>
+                    <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesión</a>
                 </li>
             </ul>
 
