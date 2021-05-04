@@ -7,12 +7,7 @@
             "role": ""
         },
         {
-            "site": "login",
-            "access": "public",
-            "role": ""
-        },
-        {
-            "site": "signup",
+            "site": "auth",
             "access": "public",
             "role": ""
         },
