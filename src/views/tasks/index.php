@@ -4,7 +4,7 @@ include_once 'views/includes/header.php';
 
 
 <div class="container p-4">
-    <h4 class=" mb-3 text-primary">Bienvenidx <?= $this->data['user_data']['username'] ?></h4>
+    <h4 class=" mb-3 text-primary">Bienvenidx <?= $this->data['user_data']['username'] ?>!</h4>
 
     <div id="editTaskModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
@@ -23,15 +23,15 @@ include_once 'views/includes/header.php';
                         </div>
 
                         <div class="form-group">
-                            <label for="title">Titulo</label>
+                            <label for="title">Título</label>
                             <input id="modal_title_input" type="text" name="title" class="form-control"
-                                placeholder="Type here">
+                                placeholder="Escriba aquí">
                         </div>
 
                         <div class="form-group ">
-                            <label for="description">Descripcion</label>
+                            <label for="description">Descripción</label>
                             <textarea id="modal_description_input" name="description" class="form-control" rows="2"
-                                placeholder="Escriba aqui"></textarea>
+                                placeholder="Escriba aquí"></textarea>
                         </div>
 
 
@@ -56,13 +56,13 @@ include_once 'views/includes/header.php';
                 <form action="<?php constant('URL'); ?>/tasks/saveTask" method="POST">
 
                     <div class="form-group">
-                        <label for="title">Titulo</label>
-                        <input type="text" name="title" class="form-control" placeholder="Escriba aqui" autofocus>
+                        <label for="title">Título</label>
+                        <input type="text" name="title" class="form-control" placeholder="Escriba aquí" autofocus>
                     </div>
 
                     <div class="form-group ">
-                        <label for="description">Descripcion</label>
-                        <textarea name="description" class="form-control" rows="2" placeholder="Escriba aqui"></textarea>
+                        <label for="description">Descripción</label>
+                        <textarea name="description" class="form-control" rows="2" placeholder="Escriba aquí"></textarea>
                     </div>
                     <input class="btn btn-success btn-block" type="submit" name="save_task" value="Crear tarea">
 
@@ -74,9 +74,9 @@ include_once 'views/includes/header.php';
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                        <th>Fecha de creacion</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Fecha de creación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -84,9 +84,9 @@ include_once 'views/includes/header.php';
                     <?php
                     foreach ($this->data['data'] as $task){ ?>
                     <tr>
-                        <td><?php echo $task->getTitle(); ?></td>
-                        <td><?php echo $task->getDescription(); ?></td>
-                        <td><?php echo $task->getCreatedAt(); ?></td>
+                        <td class="table-item"><?php echo $task->getTitle(); ?></td>
+                        <td class="table-item"><?php echo $task->getDescription(); ?></td>
+                        <td class="table-item"><?php echo $task->getCreatedAt(); ?></td>
 
                         <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
                         <td class="">
