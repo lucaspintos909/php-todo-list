@@ -17,12 +17,21 @@ include_once 'views/includes/header.php';
             </thead>
             <tbody>
             <?php
-            foreach ($this->data['data'] as $user){ ?>
+            foreach ($this->data['data'] as $user){
+                ?>
                 <tr>
-                    <td><?php echo $user->getId(); ?></td>
-                    <td><?php echo $user->getUsername(); ?></td>
-                    <td><?php echo $user->getEmail(); ?></td>
-                    <td><?php echo $user->getRole(); ?></td>
+                    <td class="<?php echo $user->getRole() == "admin" ? 'text-danger' : ''  ?>">
+                        <?php echo $user->getId(); ?>
+                    </td>
+                    <td class="<?php echo $user->getRole() == "admin" ? 'text-danger' : ''  ?>">
+                        <?php echo $user->getUsername(); ?>
+                    </td>
+                    <td class="<?php echo $user->getRole() == "admin" ? 'text-danger' : ''  ?>">
+                        <?php echo $user->getEmail(); ?>
+                    </td>
+                    <td class="<?php echo $user->getRole() == "admin" ? 'text-danger' : ''  ?>">
+                        <?php echo $user->getRole(); ?>
+                    </td>
                 </tr>
             <?php } ?>
             </tbody>
