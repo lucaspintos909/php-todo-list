@@ -2,7 +2,10 @@
 include_once 'views/includes/header.php';
 ?>
 
+
 <div class="container p-4">
+    <h4 class=" mb-3 text-primary">Bienvenidx <?= $this->data['user_data']['username'] ?></h4>
+
     <div id="editTaskModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
