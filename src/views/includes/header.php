@@ -24,12 +24,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container container-fluid">
 
-
-        <?php if($_SERVER['REQUEST_URI'] == '/admin'){ ?>
-            <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List Admin Page</a>
-        <?php } else {?>
-            <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List</a>
-        <?php }?>
+        <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
+            <img src="assets/icons/favicon.svg" class="icon-nav">
+            <?= $_SERVER['REQUEST_URI'] == '/admin' ? "Todo List Admin Page" : "Todo List" ?>
+        </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
