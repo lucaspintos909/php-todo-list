@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="shortcut icon" href="assets/icons/add-user-blue.svg" />
+    <link rel="shortcut icon" href="assets/icons/security.svg" />
+    <title>Bienvenido</title>
+
+    <!--  Mis estilos  -->
+    <link rel="stylesheet" href="assets/styles.css">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+
 </head>
-<body>
-    
+
+<body class="body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+            <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
+                Todo List Auth
+                <img src="assets/icons/lock.svg" class="icon-nav">
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+
+                <form action="<?php constant('URL');?>auth/authenticate" method="POST" class="d-flex">
+
+                    <input name="email" id="email" class="form-control me-2" type="email" placeholder="Email" aria-label="Search">
+
+                    <input name="password" id="password" class="form-control me-2 ml-3" type="password" placeholder="Contraseña" aria-label="Password">
+
+                    <button class="btn btn-outline-success ml-3" type="submit">Ingresar</button>
+
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
     <div class="container mt-5">
         <div class="col-md-12 offset-md-1asd">
             <div class="card">
@@ -19,7 +57,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST"> 
+                    <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST">
 
                         <div class="form-group col-md-6">
                             <label for="username">Nombre de ususario</label>
@@ -45,7 +83,7 @@
                         <div class="form-group mt-2 m-auto col-md-6">
                             <input type="submit" class="btn btn-success btn-block" value="Registrarse"/>
                         </div>
-                        
+
                     </form>
 
                     <p class="text-center mt-2">O</p>
