@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="<?= $_SERVER['REQUEST_URI'] == '/settings' ? 'assets/icons/config.svg' : 'assets/icons/favicon.svg'?>" />
     <title>Tasks CRUD</title>
 
     <!--  Mis estilos  -->
@@ -19,14 +19,18 @@
 
 </head>
 
-<body>
+<body class="body">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container container-fluid">
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <a href="#" class="navbar-brand"> <img src="assets/icons/favicon.svg" class="icon-nav"> Todo List</a>
+
+        <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
+            <?= $_SERVER['REQUEST_URI'] == '/admin' ? "Todo List Admin Page" : "Todo List" ?>
+            <img src="<?= $_SERVER['REQUEST_URI'] == '/settings' ? 'assets/icons/settings.svg' : 'assets/icons/checkbox.svg'?>" class="icon-nav">
+            <link rel="shortcut icon" href="" />
+
+        </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
@@ -34,8 +38,14 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
-                <li class="nav-item  ">
-                    <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesion</a>
+                <li class="nav-item">
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/tasks' ? 'active' : ''?>" href="<?php constant('URL')?>tasks">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/configuration' ? 'active' : ''?>" href="<?php constant('URL')?>settings">Configuración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="<?php constant('URL')?>logout">Cerrar Sesión</a>
                 </li>
             </ul>
 

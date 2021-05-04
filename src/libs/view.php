@@ -2,14 +2,16 @@
 
     class View{
 
+        private $data;
+
         function __construct(){
 
         }
 
 
-        function render($name, $data = []){
+        function render($name, $data = [], $user_data = []){
             $this->data['data'] = $data;
-
+            $this->data['user_data'] = $user_data;
             $this->handleMessages();
 
             require_once 'views/' . $name . '.php';

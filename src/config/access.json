@@ -22,7 +22,7 @@
             "role": "user"
         },
         {
-            "site": "user",
+            "site": "settings",
             "access": "private",
             "role": "user"
         },

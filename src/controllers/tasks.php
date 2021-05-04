@@ -19,7 +19,7 @@ class Tasks extends SessionController{
     }
 
     function render(){
-        $this->view->render('tasks/index', $this->tasks);
+        $this->view->render('tasks/index', $this->tasks, ["email" => $this->user->getEmail(), "username" => $this->user->getUsername()]);
     }
 
     public function getTasks(){
