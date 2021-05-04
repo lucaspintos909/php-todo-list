@@ -25,8 +25,8 @@
     <div class="container container-fluid">
 
         <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
-            <img src="assets/icons/favicon.svg" class="icon-nav">
             <?= $_SERVER['REQUEST_URI'] == '/admin' ? "Todo List Admin Page" : "Todo List" ?>
+            <img src="assets/icons/checkbox.svg" class="icon-nav">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +37,13 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php constant('URL')?>">Configuración</a>
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/tasks' ? 'active' : ''?>" href="<?php constant('URL')?>tasks">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesión</a>
+                    <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/configuration' ? 'active' : ''?>" href="<?php constant('URL')?>configuration">Configuración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="<?php constant('URL')?>logout">Cerrar Sesión</a>
                 </li>
             </ul>
 
