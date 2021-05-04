@@ -9,7 +9,7 @@ class SignUp extends SessionController{
     }
 
     function render(){
-        $this->view->render('login/signup', []);
+        $this->view->render('auth/signup');
     }
 
     function newUser(){
