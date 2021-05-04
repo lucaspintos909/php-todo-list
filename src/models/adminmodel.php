@@ -27,7 +27,7 @@ class AdminModel extends Model
             # FETCH_ASSOC es para que devuelva un array asociativo "clave->valor"
             while ($user_query = $query->fetch(PDO::FETCH_ASSOC)) {
 
-                # Agarro todo lo que viene de la consulta y le setteo cada variable al usuario
+                # Agarro to do lo que viene de la consulta y le setteo cada variable al usuario
                 $user = new UserModel();
                 $user->setId($user_query['id']);
                 $user->setUsername($user_query['username']);
