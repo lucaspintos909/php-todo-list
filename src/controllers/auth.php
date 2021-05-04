@@ -1,14 +1,14 @@
 <?php
 
-require_once 'models/loginmodel.php';
-class Login extends SessionController{
+require_once 'models/authmodel.php';
+class Auth extends SessionController{
 
     function __construct(){
         parent::__construct();
     }
 
     function render(){
-        $this->view->render('login/index');
+        $this->view->render('auth/index');
     }
 
     function authenticate(){
@@ -19,11 +19,11 @@ class Login extends SessionController{
             # Verifica si hay campos vacios
             if($this->emptyVariables([$email, $password])){
                 
-                $this->redirect('login',['error' => ErrorMessages::ERROR_USER_EMPTY]);
+                $this->redirect('auth',['error' => ErrorMessages::ERROR_USER_EMPTY]);
             
             # Verifica si el mail es valido
             }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $this->redirect('login',['error' => ErrorMessages::ERROR_USER_EMAIL]);
+                $this->redirect('auth',['error' => ErrorMessages::ERROR_USER_EMAIL]);
             }
             
             $user = $this->model->login($email, $password);
@@ -31,11 +31,11 @@ class Login extends SessionController{
             if($user != NULL){
                 $this->initialize($user);
             }else{
-                $this->redirect('login',['error' => ErrorMessages::ERROR_USER_INCORRECT]);
+                $this->redirect('auth',['error' => ErrorMessages::ERROR_USER_INCORRECT]);
             }
 
         }else {
-            $this->redirect('login',['error' => ErrorMessages::ERROR_USER_CREATED]);
+            $this->redirect('auth',['error' => ErrorMessages::ERROR_USER_CREATED]);
         }
 
     }
