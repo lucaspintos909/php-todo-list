@@ -38,7 +38,7 @@
         }
     ],
     "default-sites": {
-        "": "auth",
+        "": "",
         "user": "tasks",
         "admin": "admin"  
     }
