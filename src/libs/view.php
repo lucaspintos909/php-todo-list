@@ -54,7 +54,7 @@
 
         public function showErrors(){
             if(array_key_exists('error',$this->data)){
-                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $this->data['error'] . '
+                echo '<div class="alert alert-danger alert-dismissible fade show fixed-bottom alert-fit-content" role="alert">' . $this->data['error'] . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -64,7 +64,7 @@
 
         public function showSuccess(){
             if(array_key_exists('success',$this->data)){
-                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">' . $this->data['success'] . '
+                echo '<div class="alert alert-success alert-dismissible fade show fixed-bottom alert-fit-content" role="alert">' . $this->data['success'] . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

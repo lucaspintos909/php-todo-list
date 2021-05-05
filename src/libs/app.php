@@ -14,12 +14,12 @@ class App{
         $url = explode('/', $url);
 
         if(empty($url[0])){
-            $file_controller = 'controllers/signup.php';
+            $file_controller = 'controllers/auth.php';
 
             require_once $file_controller; #Cargando el controlador de login
 
-            $controller = new SignUp();
-            $controller->loadModel('signup');
+            $controller = new Auth();
+            $controller->loadModel('auth');
             $controller->render();
             return false;
         }
