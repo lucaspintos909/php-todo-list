@@ -64,7 +64,7 @@ class SessionController extends Controller{
             if($this->isPublic()){
                 # No pasa nada, lo deja entrar
             }else{
-                header('Location:' . constant('URL') . 'login');
+                header('Location:' . constant('URL'));
             }
 
         }
