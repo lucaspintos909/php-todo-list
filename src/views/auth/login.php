@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="shortcut icon" href="assets/icons/login-blue.svg" />
+    <link rel="shortcut icon" href="assets/icons/security.svg" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css">
 
 </head>
-<body>
+<body class="body">
     <div class="container mt-5">
         <div class="col-md-6 m-auto">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Iniciar Sesión pruea</h4>
                 </div>
-                
+
                 <div class="mt-2 ml-2 mr-2">
                     <?php $this->showMessages(); ?>
                 </div>
 
                 <div class="card-body">
-                    <form action="<?php constant('URL');?>login/authenticate" method="POST">
+                    <form action="<?php constant('URL');?>login/authenticate?origin_page=login" method="POST">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input name="email" id="email" class="form-control" type="email" />

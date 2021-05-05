@@ -1,51 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/icons/favicon.svg" />
-    <title>Tasks CRUD</title>
-    
-    <!--  Mis estilos  -->
-    <link rel="stylesheet" href="assets/styles.css">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a5d3bd51fc.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container container-fluid">
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-    <a href="#" class="navbar-brand">PHP MYSQL Tasks CRUD</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-        <span class="navbar-toggler-icon"></span>
-
-      </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="<?php constant('URL')?>logout">Cerrar Sesion</a>
-            </li>
-        </ul>
-        
-    </div>
-  </div>
-</nav>
-
+<?php
+include_once 'views/includes/header.php';
+?>
 
 
 <div class="container p-4">
+    <h4 class=" mb-3 text-primary">Bienvenidx <?= $this->data['user_data']['username'] ?>!</h4>
+
     <div id="editTaskModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -63,15 +23,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="title">Titulo</label>
+                            <label for="title">Título</label>
                             <input id="modal_title_input" type="text" name="title" class="form-control"
-                                placeholder="Type here">
+                                placeholder="Escriba aquí">
                         </div>
 
                         <div class="form-group ">
-                            <label for="description">Descripcion</label>
+                            <label for="description">Descripción</label>
                             <textarea id="modal_description_input" name="description" class="form-control" rows="2"
-                                placeholder="Escriba aqui"></textarea>
+                                placeholder="Escriba aquí"></textarea>
                         </div>
 
 
@@ -96,13 +56,13 @@
                 <form action="<?php constant('URL'); ?>/tasks/saveTask" method="POST">
 
                     <div class="form-group">
-                        <label for="title">Titulo</label>
-                        <input type="text" name="title" class="form-control" placeholder="Escriba aqui" autofocus>
+                        <label for="title">Título</label>
+                        <input type="text" name="title" class="form-control" placeholder="Escriba aquí" autofocus>
                     </div>
 
                     <div class="form-group ">
-                        <label for="description">Descripcion</label>
-                        <textarea name="description" class="form-control" rows="2" placeholder="Escriba aqui"></textarea>
+                        <label for="description">Descripción</label>
+                        <textarea name="description" class="form-control" rows="2" placeholder="Escriba aquí"></textarea>
                     </div>
                     <input class="btn btn-success btn-block" type="submit" name="save_task" value="Crear tarea">
 
@@ -114,19 +74,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                        <th>Fecha de creacion</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Fecha de creación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($_SESSION['tasks'] as $task){ ?>
+                    foreach ($this->data['data'] as $task){ ?>
                     <tr>
-                        <td><?= $task->getTitle(); ?></td>
-                        <td><?= $task->getDescription(); ?></td>
-                        <td><?= $task->getCreatedAt(); ?></td>
+                        <td class="table-item"><?php echo $task->getTitle(); ?></td>
+                        <td class="table-item"><?php echo $task->getDescription(); ?></td>
+                        <td class="table-item"><?php echo $task->getCreatedAt(); ?></td>
 
                         <!-- Pasando por parametro los datos de la tarea para poder mostrarlos al editarla -->
                         <td class="">
@@ -149,16 +109,8 @@
             </table>
         </div>
     </div>
-
 </div>
 
-<style>
-
-</style>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-<script src="assets/index.js"></script>
-</body>
-</html>
+<?php
+include_once 'views/includes/footer.php';
+?>

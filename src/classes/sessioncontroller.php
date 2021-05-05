@@ -11,6 +11,7 @@ class SessionController extends Controller{
 
     private $session;
     private $sites;
+    private $default_sites;
 
     private $user;
 
@@ -63,7 +64,7 @@ class SessionController extends Controller{
             if($this->isPublic()){
                 # No pasa nada, lo deja entrar
             }else{
-                header('Location:' . constant('URL') . 'login');
+                header('Location:' . constant('URL'));
             }
 
         }
@@ -178,7 +179,7 @@ class SessionController extends Controller{
                 $this->redirect($this->default_sites['admin'], []);
                 break;
             case '':
-                $this->redirect($this->default_sites[''], []);
+                $this->redirect($this->default_sites['auth'], []);
                 break;
         }
 

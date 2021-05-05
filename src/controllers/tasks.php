@@ -16,12 +16,10 @@ class Tasks extends SessionController{
 
         $this->tasks = $this->task_model->getAllUserTasks($this->user->getEmail());
 
-        $_SESSION['tasks'] = $this->tasks;
-
     }
 
     function render(){
-        $this->view->render('tasks/index');
+        $this->view->render('tasks/index', $this->tasks, ["email" => $this->user->getEmail(), "username" => $this->user->getUsername()]);
     }
 
     public function getTasks(){

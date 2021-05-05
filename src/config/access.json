@@ -7,6 +7,11 @@
             "role": ""
         },
         {
+            "site": "auth",
+            "access": "public",
+            "role": ""
+        },
+        {
             "site": "login",
             "access": "public",
             "role": ""
@@ -22,7 +27,7 @@
             "role": "user"
         },
         {
-            "site": "user",
+            "site": "settings",
             "access": "private",
             "role": "user"
         },
