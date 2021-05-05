@@ -26,7 +26,6 @@ class Session{
     public function closeSession(){
         session_unset();
         session_destroy();
-        header('Location: ' . constant('URL'));
     }
 
     public function exists(){
