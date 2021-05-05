@@ -32,7 +32,7 @@ require_once 'views/includes/navbar-auth.php';
                 <form action="<?php constant('URL'); ?>login/authenticate?origin_page=login" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input name="email" id="email" class="form-control" type="email"/>
+                        <input name="email" id="email" class="form-control" type="email" required/>
                     </div>
 
                     <div class="form-group">
@@ -42,7 +42,7 @@ require_once 'views/includes/navbar-auth.php';
                             </div>
                         </div>
 
-                        <input name="password" id="password" class="form-control" type="password"/>
+                        <input name="password" id="password" class="form-control" type="password" required/>
                         <a href="#" class="mt-2">¿Olvidaste la contraseña?<a>
                     </div>
                     <div class="form-group mt-2">
