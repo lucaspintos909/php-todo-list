@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-
 </head>
 
 <body class="body">
@@ -29,7 +28,7 @@ require_once 'views/includes/navbar-auth.php';
         <h2 class="text-center text-lg-left">Bienvenvenido!</h2>
 
 
-        <div class="mt-5">
+        <div class="mt-5 d-lg-none">
             <p class="h3 text-center ">Puedes</p>
 
             <div class="d-flex justify-content-center mb-3 mt-3">
