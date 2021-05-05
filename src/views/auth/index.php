@@ -59,18 +59,23 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
+
+    <div class="container mt-5 d-block d-lg-flex d-md-flex">
         <div class="col-md-6">
-            <h2>Hola</h2>
+            <h2>Bienvenvenido!</h2>
+            <div class="mt-2 m-auto col-md-12">
+                <?php $this->showMessages(); ?>
+            </div>
+
         </div>
-        <div class="col-md-6 offset-md-1asd">
+        <div class="col-md-6  d-none d-lg-block">
             <div class="card">
                 <div class="card-header text-center">
                     <h4>Registrarse</h4>
                 </div>
 
                 <div class="card-body">
-                    <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST">
+                    <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser?origin_page=auth" method="POST">
 
                         <div class="form-group col-md-12">
                             <label for="username">Nombre de ususario</label>
@@ -90,9 +95,7 @@
                             <label for="second_password">Confirmar contraseña</label>
                             <input name="second_password" id="second_password" class="form-control" type="password" placeholder="Repita su contraseña" required />
                         </div>
-                        <div class="mt-2 m-auto col-md-12">
-                            <?php $this->showMessages(); ?>
-                        </div>
+
                         <div class="form-group mt-2 m-auto col-md-6">
                             <input type="submit" class="btn btn-success btn-block" value="Registrarse"/>
                         </div>
