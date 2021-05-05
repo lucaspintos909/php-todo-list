@@ -31,24 +31,24 @@ require_once 'views/includes/navbar-auth.php';
 
                     <div class="form-group col-md-6">
                         <label for="username">Nombre de ususario</label>
-                        <input name="username" id="username" class="form-control" type="text" placeholder="Ej. Pepe"/>
+                        <input name="username" id="username" class="form-control" type="text" placeholder="Ej. Pepe" required/>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="email">Email</label>
                         <input name="email" id="email" class="form-control" type="email"
-                               placeholder="nombre@ejemplo.com"/>
+                               placeholder="nombre@ejemplo.com" required/>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="password">Contraseña</label>
                         <input name="password" id="password" class="form-control" type="password"
-                               placeholder="Ingrese su contraseña"/>
+                               placeholder="Ingrese su contraseña" required/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="second_password">Confirmar contraseña</label>
                         <input name="second_password" id="second_password" class="form-control" type="password"
-                               placeholder="Repita su contraseña"/>
+                               placeholder="Repita su contraseña" required/>
                     </div>
                     <div class="mt-2 m-auto col-md-12">
                         <?php $this->showMessages(); ?>
