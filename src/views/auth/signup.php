@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="shortcut icon" href="assets/icons/security.svg" />
+    <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 </head>
-<body>
+
+<body class="body">
 
 <div class="container mt-5">
     <div class="col-md-12 offset-md-1asd">
@@ -19,7 +21,7 @@
             </div>
 
             <div class="card-body">
-                <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser" method="POST">
+                <form class="row g-3" action="<?php echo constant('URL');?>signup/newUser?origin_page=signup" method="POST">
 
                     <div class="form-group col-md-6">
                         <label for="username">Nombre de ususario</label>
