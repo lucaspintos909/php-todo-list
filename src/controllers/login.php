@@ -13,7 +13,7 @@ class Login extends SessionController{
 
     function authenticate(){
         // Para saber de que pagina viene la solicitud, auth/login
-        $origin_page = $this->existGET(['origin_page']);
+        $origin_page = $this->getGET('origin_page');
         if($this->existPOST(['email', 'password'])){
             $email = $this->getPOST('email');
             $password = $this->getPOST('password');
