@@ -13,26 +13,30 @@ class SignUp extends SessionController{
     }
 
     function newUser(){
+
+        // Para saber de que pagina viene la solicitud, auth/signup
+        $origin_page = $this->getGET('origin_page');
+
         if ($this->existPOST(['username', 'email', 'password', 'second_password'])) {
             
             $username = $this->getPOST('username');
             $email = $this->getPOST('email');
             $password = $this->getPOST('password');
             $second_password = $this->getPOST('second_password');
-            
+
             # Verifica si hay campos vacios
             if($this->emptyVariables([$username, $email, $password, $second_password])){
                 
-                $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EMPTY]);
+                $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_EMPTY]);
             
             # Verifica si las contraseñas son diferentes
             }elseif (!($password === $second_password)) {
 
-                $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_PASSWORD]);
+                $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_PASSWORD]);
 
             # Verifica que el email ingresado sea valido
             }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EMAIL]);
+                $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_EMAIL]);
             }else {
                 
                 $user = new UserModel();
@@ -43,11 +47,11 @@ class SignUp extends SessionController{
 
                 # Verifica si existe el usuario
                 if($user->existsUser($user->getEmail())){
-                    $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_EXISTS]);
+                    $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_EXISTS]);
                 }elseif ($user->save()) {
-                    $this->redirect('login',['success' => SuccessMessages::SUCCESS_USER_CREATED]);
+                    $this->redirect($origin_page,['success' => SuccessMessages::SUCCESS_USER_CREATED]);
                 }else {
-                    $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
+                    $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_CREATED]);
                 }
                 
             }
@@ -55,7 +59,7 @@ class SignUp extends SessionController{
             
 
         }else {
-            $this->redirect('signup',['error' => ErrorMessages::ERROR_USER_CREATED]);
+            $this->redirect($origin_page,['error' => ErrorMessages::ERROR_USER_CREATED]);
         }
     }
 
