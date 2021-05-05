@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
-        <a href="<?php constant('URL') ?>" class="navbar-brand font-caveat title-navbar">
+        <a href="<?php constant('URL') ?>/" class="navbar-brand font-caveat title-navbar">
             Todo List Auth
             <img src="assets/icons/lock.svg" class="icon-nav">
 
@@ -25,7 +25,7 @@
             </ul>
 
         </div>
-        <div class="d-none <?= $_SERVER['REQUEST_URI'] != '/login' ? 'd-lg-flex justify-content-end ' : ''?>">
+        <div class="d-none <?= $_SERVER['REQUEST_URI'] != '/login' ? 'd-lg-flex justify-content-end ' : '' ?>">
 
             <form action="<?php constant('URL'); ?>login/authenticate?origin_page=auth" method="POST" class="d-flex">
                 <input name="email" id="email" class="form-control me-2" type="email" placeholder="Email"
