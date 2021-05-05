@@ -46,7 +46,7 @@
 
             </div>
             <div class="d-none d-lg-flex justify-content-end">
-                <form action="<?php constant('URL');?>login/authenticate" method="POST" class="d-flex">
+                <form action="<?php constant('URL');?>login/authenticate?origin_page=auth" method="POST" class="d-flex">
 
                     <input name="email" id="email" class="form-control me-2" type="email" placeholder="Email" aria-label="Email" required>
 
