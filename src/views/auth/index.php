@@ -23,7 +23,7 @@
         <div class="container-fluid">
 
             <a href="<?php constant('URL')?>" class="navbar-brand font-caveat title-navbar">
-                Todo List Auth
+                Todo List Authentication
                 <img src="assets/icons/lock.svg" class="icon-nav">
 
             </a>
